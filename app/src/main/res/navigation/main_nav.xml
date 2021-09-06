@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main_nav"
+    app:startDestination="@id/homeFragment">
+
+    <fragment
+        android:id="@+id/homeFragment"
+        android:name="com.ftp.coffeenuity.presentation.home.HomeFragment"
+        android:label="fragment_home"
+        tools:layout="@layout/fragment_home" >
+        <action
+            android:id="@+id/action_homeFragment_to_firstQuestionerFragment"
+            app:destination="@id/firstQuestionerFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/historyFragment"
+        android:name="com.ftp.coffeenuity.presentation.home.HistoryFragment"
+        android:label="fragment_history"
+        tools:layout="@layout/fragment_history" />
+    <fragment
+        android:id="@+id/firstQuestionerFragment"
+        android:name="com.ftp.coffeenuity.presentation.home.questioner.FirstQuestionerFragment"
+        android:label="fragment_first_questioner"
+        tools:layout="@layout/fragment_first_questioner" >
+        <action
+            android:id="@+id/action_firstQuestionerFragment_to_secondQuestionerFragment"
+            app:destination="@id/secondQuestionerFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/resultFragment"
+        android:name="com.ftp.coffeenuity.presentation.home.questioner.ResultFragment"
+        android:label="fragment_result"
+        tools:layout="@layout/fragment_result" >
+        <action
+            android:id="@+id/action_resultFragment_to_strategiFragment"
+            app:destination="@id/strategiFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/adminHomeFragment"
+        android:name="com.ftp.coffeenuity.presentation.admin.AdminHomeFragment"
+        android:label="fragment_admin_home"
+        tools:layout="@layout/fragment_admin_home" />
+    <fragment
+        android:id="@+id/secondQuestionerFragment"
+        android:name="com.ftp.coffeenuity.presentation.home.questioner.SecondQuestionerFragment"
+        android:label="fragment_second_questioner"
+        tools:layout="@layout/fragment_second_questioner" >
+        <action
+            android:id="@+id/action_secondQuestionerFragment_to_resultFragment"
+            app:destination="@id/resultFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/strategiFragment"
+        android:name="com.ftp.coffeenuity.presentation.home.questioner.StrategiFragment"
+        android:label="fragment_strategi"
+        tools:layout="@layout/fragment_strategi" />
+    <fragment
+        android:id="@+id/profileFragment"
+        android:name="com.ftp.coffeenuity.presentation.home.ProfileFragment"
+        android:label="ProfileFragment" />
+</navigation>

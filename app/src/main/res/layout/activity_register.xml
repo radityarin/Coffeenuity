@@ -1,0 +1,447 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.core.widget.NestedScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/backgroundColor"
+    tools:context=".presentation.auth.register.RegisterActivity">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/backgroundColor"
+        android:orientation="vertical"
+        tools:context=".presentation.auth.register.RegisterActivity">
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/guidelineLeft"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintGuide_begin="@dimen/layout_margin2" />
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/guidelineRight"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintGuide_end="@dimen/layout_margin2" />
+
+        <TextView
+            android:id="@+id/textView"
+            style="@style/headline5"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="@dimen/_60sdp"
+            android:text="Daftar Akun"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+
+        <androidx.cardview.widget.CardView
+            android:id="@+id/cvName"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="@dimen/layout_margin2"
+            android:layout_marginTop="@dimen/layout_margin"
+            android:background="@android:color/transparent"
+            app:boxBackgroundColor="@android:color/transparent"
+            app:cardCornerRadius="@dimen/layout_margin2">
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/tilName"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@android:color/transparent"
+                app:boxBackgroundColor="@android:color/transparent">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    style="@style/subtitle1"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="Nama"
+                    android:inputType="textEmailAddress" />
+            </com.google.android.material.textfield.TextInputLayout>
+        </androidx.cardview.widget.CardView>
+
+        <androidx.cardview.widget.CardView
+            android:id="@+id/cvEmail"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="@dimen/layout_margin2"
+            android:layout_marginTop="@dimen/layout_margin2"
+            android:background="@android:color/transparent"
+            app:boxBackgroundColor="@android:color/transparent"
+            app:cardCornerRadius="@dimen/layout_margin2">
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/tilEmail"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@android:color/transparent"
+                app:boxBackgroundColor="@android:color/transparent">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/etEmail"
+                    style="@style/subtitle1"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="Email"
+                    android:inputType="textEmailAddress" />
+            </com.google.android.material.textfield.TextInputLayout>
+        </androidx.cardview.widget.CardView>
+
+        <androidx.cardview.widget.CardView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="@dimen/layout_margin2"
+            android:layout_marginTop="@dimen/layout_margin2"
+            android:background="@android:color/transparent"
+            app:boxBackgroundColor="@android:color/transparent"
+            app:cardCornerRadius="@dimen/layout_margin2">
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/tilJenisKelamin"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@android:color/transparent"
+                app:boxBackgroundColor="@android:color/transparent">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    style="@style/subtitle1"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="Jenis Kelamin"
+                    android:inputType="textEmailAddress" />
+            </com.google.android.material.textfield.TextInputLayout>
+        </androidx.cardview.widget.CardView>
+
+        <androidx.cardview.widget.CardView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="@dimen/layout_margin2"
+            android:layout_marginTop="@dimen/layout_margin2"
+            android:background="@android:color/transparent"
+            app:boxBackgroundColor="@android:color/transparent"
+            app:cardCornerRadius="@dimen/layout_margin2">
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/tilUsia"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@android:color/transparent"
+                app:boxBackgroundColor="@android:color/transparent">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    style="@style/subtitle1"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="Usia"
+                    android:inputType="number" />
+            </com.google.android.material.textfield.TextInputLayout>
+        </androidx.cardview.widget.CardView>
+
+        <androidx.cardview.widget.CardView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="@dimen/layout_margin2"
+            android:layout_marginTop="@dimen/layout_margin2"
+            android:background="@android:color/transparent"
+            app:boxBackgroundColor="@android:color/transparent"
+            app:cardCornerRadius="@dimen/layout_margin2">
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/tilAlamat"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@android:color/transparent"
+                app:boxBackgroundColor="@android:color/transparent">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    style="@style/subtitle1"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="Alamat"
+                    android:inputType="textEmailAddress" />
+            </com.google.android.material.textfield.TextInputLayout>
+        </androidx.cardview.widget.CardView>
+
+        <androidx.cardview.widget.CardView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="@dimen/layout_margin2"
+            android:layout_marginTop="@dimen/layout_margin2"
+            android:background="@android:color/transparent"
+            app:boxBackgroundColor="@android:color/transparent"
+            app:cardCornerRadius="@dimen/layout_margin2">
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/tilSifatUsaha"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@android:color/transparent"
+                app:boxBackgroundColor="@android:color/transparent">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    style="@style/subtitle1"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="Sifat Usaha"
+                    android:inputType="textEmailAddress" />
+            </com.google.android.material.textfield.TextInputLayout>
+        </androidx.cardview.widget.CardView>
+
+        <androidx.cardview.widget.CardView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="@dimen/layout_margin2"
+            android:layout_marginTop="@dimen/layout_margin2"
+            android:background="@android:color/transparent"
+            app:boxBackgroundColor="@android:color/transparent"
+            app:cardCornerRadius="@dimen/layout_margin2">
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/tilJumlahTenagaKerja"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@android:color/transparent"
+                app:boxBackgroundColor="@android:color/transparent">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    style="@style/subtitle1"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="Jumlah Tenaga Kerja"
+                    android:inputType="number" />
+            </com.google.android.material.textfield.TextInputLayout>
+        </androidx.cardview.widget.CardView>
+
+        <androidx.cardview.widget.CardView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="@dimen/layout_margin2"
+            android:layout_marginTop="@dimen/layout_margin2"
+            android:background="@android:color/transparent"
+            app:boxBackgroundColor="@android:color/transparent"
+            app:cardCornerRadius="@dimen/layout_margin2">
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/tilPekerjaan"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@android:color/transparent"
+                app:boxBackgroundColor="@android:color/transparent">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    style="@style/subtitle1"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="Pekerjaan"
+                    android:inputType="textEmailAddress" />
+            </com.google.android.material.textfield.TextInputLayout>
+        </androidx.cardview.widget.CardView>
+
+        <androidx.cardview.widget.CardView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="@dimen/layout_margin2"
+            android:layout_marginTop="@dimen/layout_margin2"
+            android:background="@android:color/transparent"
+            app:boxBackgroundColor="@android:color/transparent"
+            app:cardCornerRadius="@dimen/layout_margin2">
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/tilKepemilikanLahan"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@android:color/transparent"
+                app:boxBackgroundColor="@android:color/transparent">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    style="@style/subtitle1"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="Kepemilikan Lahan"
+                    android:inputType="textEmailAddress" />
+            </com.google.android.material.textfield.TextInputLayout>
+        </androidx.cardview.widget.CardView>
+
+        <androidx.cardview.widget.CardView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="@dimen/layout_margin2"
+            android:layout_marginTop="@dimen/layout_margin2"
+            android:background="@android:color/transparent"
+            app:boxBackgroundColor="@android:color/transparent"
+            app:cardCornerRadius="@dimen/layout_margin2">
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/tilLuasLahan"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@android:color/transparent"
+                app:boxBackgroundColor="@android:color/transparent">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    style="@style/subtitle1"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="Luas Lahan"
+                    android:inputType="textEmailAddress" />
+            </com.google.android.material.textfield.TextInputLayout>
+        </androidx.cardview.widget.CardView>
+
+        <androidx.cardview.widget.CardView
+            android:id="@+id/cvPekerjaan"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="@dimen/layout_margin2"
+            android:layout_marginTop="@dimen/layout_margin2"
+            android:background="@android:color/transparent"
+            app:boxBackgroundColor="@android:color/transparent"
+            app:cardCornerRadius="@dimen/layout_margin2">
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/tilPengalamanUsahaTani"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@android:color/transparent"
+                app:boxBackgroundColor="@android:color/transparent">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    style="@style/subtitle1"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="Pengalaman Usaha Tani"
+                    android:inputType="textEmailAddress" />
+            </com.google.android.material.textfield.TextInputLayout>
+        </androidx.cardview.widget.CardView>
+
+        <androidx.cardview.widget.CardView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="@dimen/layout_margin2"
+            android:layout_marginTop="@dimen/layout_margin2"
+            android:background="@android:color/transparent"
+            app:boxBackgroundColor="@android:color/transparent"
+            app:cardCornerRadius="@dimen/layout_margin2">
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/tilRangeHargaProduk"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@android:color/transparent"
+                app:boxBackgroundColor="@android:color/transparent">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    style="@style/subtitle1"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="Range Harga Produk"
+                    android:inputType="textEmailAddress" />
+            </com.google.android.material.textfield.TextInputLayout>
+        </androidx.cardview.widget.CardView>
+
+        <androidx.cardview.widget.CardView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="@dimen/layout_margin2"
+            android:layout_marginTop="@dimen/layout_margin2"
+            android:background="@android:color/transparent"
+            app:boxBackgroundColor="@android:color/transparent"
+            app:cardCornerRadius="@dimen/layout_margin2">
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/tilProdukYangDijual"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@android:color/transparent"
+                app:boxBackgroundColor="@android:color/transparent">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    style="@style/subtitle1"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="Produk yang dijual"
+                    android:inputType="textEmailAddress" />
+            </com.google.android.material.textfield.TextInputLayout>
+        </androidx.cardview.widget.CardView>
+
+        <androidx.cardview.widget.CardView
+            android:id="@+id/cvPassword"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="@dimen/layout_margin2"
+            android:layout_marginTop="@dimen/layout_margin2"
+            android:background="@android:color/transparent"
+            app:boxBackgroundColor="@android:color/transparent"
+            app:cardCornerRadius="@dimen/layout_margin2">
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/tilPassword"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@android:color/transparent"
+                app:boxBackgroundColor="@android:color/transparent">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/etPassword"
+                    style="@style/subtitle1"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="Password"
+                    android:inputType="textEmailAddress" />
+            </com.google.android.material.textfield.TextInputLayout>
+        </androidx.cardview.widget.CardView>
+
+        <androidx.cardview.widget.CardView
+            android:id="@+id/cvConfirmPassword"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="@dimen/layout_margin2"
+            android:layout_marginTop="@dimen/layout_margin2"
+            android:background="@android:color/transparent"
+            app:boxBackgroundColor="@android:color/transparent"
+            app:cardCornerRadius="@dimen/layout_margin2">
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/tilConfirmPassword"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@android:color/transparent"
+                app:boxBackgroundColor="@android:color/transparent">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    style="@style/subtitle1"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="Confirm Password"
+                    android:inputType="textEmailAddress" />
+            </com.google.android.material.textfield.TextInputLayout>
+        </androidx.cardview.widget.CardView>
+
+        <com.kusu.loadingbutton.LoadingButton
+            android:id="@+id/btnRegister"
+            style="@style/ButtonPrimary"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="@dimen/layout_margin2"
+            android:layout_marginTop="@dimen/layout_margin"
+            android:paddingLeft="10dp"
+            android:paddingRight="10dp"
+            android:text="Daftar"
+            android:textColor="@color/white"
+            app:layout_constraintEnd_toEndOf="@id/guidelineRight"
+            app:layout_constraintStart_toStartOf="@id/guidelineLeft"
+            app:layout_constraintTop_toBottomOf="@id/cvConfirmPassword"
+            app:lb_buttonColor="@color/primaryPurple"
+            app:lb_isCircular="false"
+            app:lb_isShadowEnable="true"
+            app:lb_loaderColor="@color/white"
+            app:lb_shadowHeight="5dp" />
+
+    </LinearLayout>
+</androidx.core.widget.NestedScrollView>

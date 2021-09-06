@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guidelineLeft"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_begin="@dimen/layout_margin2" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guidelineRight"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_end="@dimen/layout_margin2" />
+
+    <TextView
+        android:id="@+id/btnSkip"
+        style="@style/buttonTextM"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/layout_margin2"
+        android:background="?attr/selectableItemBackground"
+        android:elevation="4dp"
+        android:text="Skip"
+        app:layout_constraintEnd_toEndOf="@id/guidelineRight"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/rvOnBoarding"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.0"
+        tools:listitem="@layout/item_onboarding" />
+
+    <Button
+        android:id="@+id/btnRegister"
+        android:visibility="gone"
+        android:layout_width="0dp"
+        android:layout_marginBottom="@dimen/layout_margin3"
+        app:layout_constraintBottom_toTopOf="@id/btnLogin"
+        app:layout_constraintEnd_toEndOf="@id/guidelineRight"
+        app:layout_constraintStart_toStartOf="@id/guidelineLeft"
+        android:layout_height="wrap_content"
+        android:text="Register"
+        style="@style/ButtonPrimary"/>
+
+    <Button
+        android:id="@+id/btnLogin"
+        android:visibility="gone"
+        android:layout_width="0dp"
+        android:layout_marginBottom="@dimen/layout_margin"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="@id/guidelineRight"
+        app:layout_constraintStart_toStartOf="@id/guidelineLeft"
+        android:layout_height="wrap_content"
+        android:text="Login"
+        style="@style/ButtonPrimary"/>
+
+
+    <TextView
+        android:id="@+id/btnNext"
+        style="@style/buttonTextM"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="@dimen/layout_margin2"
+        android:background="?attr/selectableItemBackground"
+        android:text="Next"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="@id/guidelineLeft" />
+
+    <com.kingfisher.easyviewindicator.RecyclerViewIndicator
+        android:id="@+id/recyclerViewIndicator"
+        android:layout_width="wrap_content"
+        android:layout_height="20dp"
+        android:layout_marginBottom="@dimen/layout_margin2"
+        app:avi_animation_enable="true"
+        app:avi_drawable="@drawable/ic_circle_selected"
+        app:avi_drawable_unselected="@drawable/ic_circle_not_selected"
+        app:avi_height="10dp"
+        app:avi_margin="10dp"
+        app:avi_width="10dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="@id/guidelineRight" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

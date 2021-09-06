@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_centerInParent="true"
+        android:gravity="center"
+        android:orientation="vertical">
+
+        <TextView
+            style="@style/headline4"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/_100sdp"
+            android:text="Hi, Tom"
+            android:textAlignment="center"
+            android:textColor="@color/black" />
+
+        <TextView
+            style="@style/body4"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="@dimen/layout_margin2"
+            android:text="Selamat datang silahkan isikan kuisioner berikut untuk mendapatkan nilai keberlanjutan."
+            android:textAlignment="center"
+            android:textColor="@color/black" />
+
+        <com.kusu.loadingbutton.LoadingButton
+            android:id="@+id/btnIsiKuisioner"
+            style="@style/ButtonPrimary"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="@dimen/layout_margin2"
+            android:layout_marginTop="@dimen/layout_margin"
+            android:paddingLeft="10dp"
+            android:paddingRight="10dp"
+            android:text="Isi Kuisioner"
+            android:textColor="@color/white"
+            app:layout_constraintEnd_toEndOf="@id/guidelineRight"
+            app:layout_constraintStart_toStartOf="@id/guidelineLeft"
+            app:layout_constraintTop_toBottomOf="@id/cvPassword"
+            app:lb_buttonColor="@color/primaryPurple"
+            app:lb_isCircular="false"
+            app:lb_isShadowEnable="true"
+            app:lb_loaderColor="@color/white"
+            app:lb_shadowHeight="5dp" />
+
+        <ImageView
+            android:id="@+id/ivDrawableOnBoarding"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/_40sdp"
+            android:contentDescription="Image"
+            android:scaleType="centerCrop"
+            android:src="@drawable/ic_illus_home" />
+    </LinearLayout>
+
+</RelativeLayout>
