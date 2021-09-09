@@ -1,0 +1,174 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.core.widget.NestedScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/backgroundColor">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/backgroundColor"
+        android:orientation="vertical">
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/guidelineLeft"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintGuide_begin="@dimen/layout_margin2" />
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/guidelineRight"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintGuide_end="@dimen/layout_margin2" />
+
+        <TextView
+            android:id="@+id/textView"
+            style="@style/headline5"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="@dimen/_60sdp"
+            android:text="Kuisioner 2" />
+
+        <TextView
+            style="@style/caption2_10"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:text="Isikan data dibawah dengan benar dan lengkap."
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="@dimen/layout_margin2"
+            android:layout_marginVertical="@dimen/layout_margin3"
+            android:background="@drawable/bg_edit_text"
+            android:orientation="vertical"
+            android:padding="@dimen/layout_margin2">
+
+            <TextView
+                style="@style/caption"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Goal Penentuan Variabel Keberlanjutan Rantai Pasok Agroindustri Kopi" />
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/rvGoalPenentuan"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/layout_margin2"
+                android:orientation="vertical"
+                app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+                tools:itemCount="2"
+                tools:listitem="@layout/item_questioner_range" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/layout_margin3"
+            android:background="@drawable/bg_edit_text"
+            android:orientation="vertical"
+            android:padding="@dimen/layout_margin3">
+
+            <TextView
+                style="@style/caption"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Elemen variabel ekonomi" />
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/rvElemenVariabelEkonomi"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/layout_margin2"
+                android:orientation="vertical"
+                app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+                tools:itemCount="2"
+                tools:listitem="@layout/item_questioner_range" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/layout_margin3"
+            android:background="@drawable/bg_edit_text"
+            android:orientation="vertical"
+            android:padding="@dimen/layout_margin3">
+
+            <TextView
+                style="@style/caption"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Elemen variabel sosial" />
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/rvElemenVariabelSosial"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/layout_margin2"
+                android:orientation="vertical"
+                app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+                tools:itemCount="2"
+                tools:listitem="@layout/item_questioner_range" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/layout_margin3"
+            android:background="@drawable/bg_edit_text"
+            android:orientation="vertical"
+            android:padding="@dimen/layout_margin3">
+
+            <TextView
+                style="@style/caption"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Elemen variabel lingkungan" />
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/rvElemenVariabelLingkungan"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:layout_marginTop="@dimen/layout_margin2"
+                app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+                tools:itemCount="2"
+                tools:listitem="@layout/item_questioner_range" />
+
+        </LinearLayout>
+
+        <com.kusu.loadingbutton.LoadingButton
+            android:id="@+id/btnNext"
+            style="@style/ButtonPrimary"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="@dimen/layout_margin3"
+            android:layout_marginVertical="@dimen/layout_margin"
+            android:paddingLeft="10dp"
+            android:paddingRight="10dp"
+            android:text="Submit"
+            android:textColor="@color/white"
+            app:layout_constraintEnd_toEndOf="@id/guidelineRight"
+            app:layout_constraintStart_toStartOf="@id/guidelineLeft"
+            app:layout_constraintTop_toBottomOf="@id/cvConfirmPassword"
+            app:lb_buttonColor="@color/primaryPurple"
+            app:lb_isCircular="false"
+            app:lb_isShadowEnable="true"
+            app:lb_loaderColor="@color/white"
+            app:lb_shadowHeight="5dp" />
+
+    </LinearLayout>
+</androidx.core.widget.NestedScrollView>

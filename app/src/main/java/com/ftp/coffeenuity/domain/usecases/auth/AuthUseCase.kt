@@ -9,4 +9,6 @@ interface AuthUseCase {
     fun addUser(user: User): Flow<Resource<Boolean>>
     fun register(email: String, password: String): Flow<Resource<AuthResult>>
     fun login(email: String, password: String): Flow<Resource<AuthResult>>
+    fun getUserWithIDUser(idUser: String): Flow<Resource<User>>
+
 }

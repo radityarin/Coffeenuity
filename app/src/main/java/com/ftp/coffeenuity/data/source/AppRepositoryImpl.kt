@@ -25,6 +25,8 @@ class AppRepositoryImpl(
 
     override fun addUsers(user: User): Flow<Resource<Boolean>> = remoteDataSource.addUser(user)
 
+    override fun getUserWithIDUser(idUser: String): Flow<Resource<User>> = remoteDataSource.getUserWithIDUser(idUser = idUser)
+
     override fun getIndeksKeberlanjutanPetani(petaniRequest: PetaniRequest): Flow<Resource<PetaniResponse>> =
         flow {
             emit(Resource.Loading())

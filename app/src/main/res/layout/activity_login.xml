@@ -91,7 +91,8 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:background="@android:color/transparent"
-            app:boxBackgroundColor="@android:color/transparent">
+            app:boxBackgroundColor="@android:color/transparent"
+            app:passwordToggleEnabled="true">
 
             <com.google.android.material.textfield.TextInputEditText
                 android:id="@+id/etPassword"
@@ -99,7 +100,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:hint="Password"
-                android:inputType="textEmailAddress" />
+                android:inputType="textPassword" />
         </com.google.android.material.textfield.TextInputLayout>
     </androidx.cardview.widget.CardView>
 
@@ -115,9 +116,9 @@
         android:paddingRight="10dp"
         android:text="Masuk"
         android:textColor="@color/white"
-        app:layout_constraintTop_toBottomOf="@id/cvPassword"
         app:layout_constraintEnd_toEndOf="@id/guidelineRight"
         app:layout_constraintStart_toStartOf="@id/guidelineLeft"
+        app:layout_constraintTop_toBottomOf="@id/cvPassword"
         app:lb_buttonColor="@color/primaryPurple"
         app:lb_isCircular="false"
         app:lb_isShadowEnable="true"

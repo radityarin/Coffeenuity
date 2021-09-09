@@ -1,0 +1,471 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.core.widget.NestedScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/backgroundColor">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/backgroundColor"
+        android:orientation="vertical">
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/guidelineLeft"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintGuide_begin="@dimen/layout_margin2" />
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/guidelineRight"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintGuide_end="@dimen/layout_margin2" />
+
+        <TextView
+            android:id="@+id/textView"
+            style="@style/headline5"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="@dimen/_60sdp"
+            android:text="Kuisioner 1" />
+
+        <TextView
+            style="@style/caption"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:text="Isikan data dibawah dengan benar dan lengkap."
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            style="@style/body4"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="@dimen/layout_margin2"
+            android:layout_marginTop="@dimen/layout_margin"
+            android:text="1. Berapa biaya yang dikeluarkan untuk setiap satu kali produksi?"
+            android:textStyle="bold" />
+
+        <EditText
+            android:id="@+id/editText1"
+            style="@style/body4"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="@dimen/layout_margin2"
+            android:background="@drawable/bg_edit_text"
+            android:hint="Isikan data"
+            android:inputType="textMultiLine"
+            android:minHeight="@dimen/_50sdp"
+            android:padding="@dimen/layout_margin2" />
+
+        <TextView
+            style="@style/body4"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="@dimen/layout_margin2"
+            android:layout_marginTop="@dimen/layout_margin2"
+            android:text="2.	Berapa hasil produksi (kg/satu kali panen)?"
+            android:textStyle="bold" />
+
+        <EditText
+            android:id="@+id/editText2"
+            style="@style/body4"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="@dimen/layout_margin2"
+            android:background="@drawable/bg_edit_text"
+            android:hint="Isikan data"
+            android:inputType="textMultiLine"
+            android:minHeight="@dimen/_50sdp"
+            android:padding="@dimen/layout_margin2" />
+
+        <TextView
+            style="@style/body4"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="@dimen/layout_margin2"
+            android:layout_marginTop="@dimen/layout_margin2"
+            android:text="3.	Berapa kali produksi dalam setahun?"
+            android:textStyle="bold" />
+
+        <EditText
+            android:id="@+id/editText3"
+            style="@style/body4"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="@dimen/layout_margin2"
+            android:background="@drawable/bg_edit_text"
+            android:hint="Isikan data"
+            android:inputType="textMultiLine"
+            android:minHeight="@dimen/_50sdp"
+            android:padding="@dimen/layout_margin2" />
+
+        <TextView
+            style="@style/body4"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="@dimen/layout_margin2"
+            android:layout_marginTop="@dimen/layout_margin2"
+            android:text="4.	Harga jual (Rp/kg) green bean?"
+            android:textStyle="bold" />
+
+        <EditText
+            style="@style/body4"
+            android:id="@+id/editText4"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="@dimen/layout_margin2"
+            android:background="@drawable/bg_edit_text"
+            android:hint="Isikan data"
+            android:inputType="textMultiLine"
+            android:minHeight="@dimen/_50sdp"
+            android:padding="@dimen/layout_margin2" />
+
+        <TextView
+            style="@style/body4"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="@dimen/layout_margin2"
+            android:layout_marginTop="@dimen/layout_margin2"
+            android:text="5.	Apakah ada teknologi dalam mendukung produksi?"
+            android:textStyle="bold" />
+
+        <EditText
+            android:id="@+id/editText5"
+            style="@style/body4"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="@dimen/layout_margin2"
+            android:background="@drawable/bg_edit_text"
+            android:hint="Isikan data"
+            android:inputType="textMultiLine"
+            android:minHeight="@dimen/_50sdp"
+            android:padding="@dimen/layout_margin2" />
+
+        <TextView
+            style="@style/body4"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="@dimen/layout_margin2"
+            android:layout_marginTop="@dimen/layout_margin2"
+            android:text="6.	Setelah panen, kegiatan apa saja yang dilakukan?"
+            android:textStyle="bold" />
+
+        <EditText
+            android:id="@+id/editText6"
+            style="@style/body4"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="@dimen/layout_margin2"
+            android:background="@drawable/bg_edit_text"
+            android:hint="Isikan data"
+            android:inputType="textMultiLine"
+            android:minHeight="@dimen/_50sdp"
+            android:padding="@dimen/layout_margin2" />
+
+        <TextView
+            style="@style/body4"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="@dimen/layout_margin2"
+            android:layout_marginTop="@dimen/layout_margin2"
+            android:text="7.	Sasaran pasar produk yang bapak/ibu jual (Pasar lokal/Pasar Nasional/Pasar Ekspor)?"
+            android:textStyle="bold" />
+
+        <EditText
+            android:id="@+id/editText7"
+            style="@style/body4"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="@dimen/layout_margin2"
+            android:background="@drawable/bg_edit_text"
+            android:hint="Isikan data"
+            android:inputType="textMultiLine"
+            android:minHeight="@dimen/_50sdp"
+            android:padding="@dimen/layout_margin2" />
+
+        <TextView
+            style="@style/body4"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="@dimen/layout_margin2"
+            android:layout_marginTop="@dimen/layout_margin2"
+            android:text="8.	Jenis grade produk yang dijual? (Pilih boleh lebih dari satu)"
+            android:textStyle="bold" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="@dimen/layout_margin2"
+            android:background="@drawable/bg_edit_text"
+            android:orientation="vertical">
+
+            <CheckBox
+                android:id="@+id/cb1"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="@dimen/layout_margin2"
+                android:text="Grade 1       :	Defects maximum 11" />
+
+            <CheckBox
+                android:id="@+id/cb2"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="@dimen/layout_margin2"
+                android:text="Grade 2      :	Total defects antara 12 and 25" />
+
+            <CheckBox
+                android:id="@+id/cb3"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="@dimen/layout_margin2"
+                android:text="Grade 3      :	Total defects antara 26 and 44" />
+
+            <CheckBox
+                android:id="@+id/cb4"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="@dimen/layout_margin2"
+                android:text="Grade 4a    :	Total defects antara 45 to 60" />
+
+            <CheckBox
+                android:id="@+id/cb5"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="@dimen/layout_margin2"
+                android:text="Grade 4b    :	Total defects antara 61 to 80" />
+
+            <CheckBox
+                android:id="@+id/cb6"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="@dimen/layout_margin2"
+                android:text="Grade 5      :	Total defects antara 81 to 150" />
+
+            <CheckBox
+                android:id="@+id/cb7"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="@dimen/layout_margin2"
+                android:text="Grade 6      :	Total defects antara 151 to 225" />
+        </LinearLayout>
+
+        <TextView
+            style="@style/body4"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="@dimen/layout_margin2"
+            android:layout_marginTop="@dimen/layout_margin2"
+            android:text="9.	Jenis sertifikat kopi yang dimiliki (SNI/EU/UTZ/ICERT/Lainnya):"
+            android:textStyle="bold" />
+
+        <EditText
+            android:id="@+id/editText9"
+            style="@style/body4"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="@dimen/layout_margin2"
+            android:background="@drawable/bg_edit_text"
+            android:hint="Isikan data"
+            android:inputType="textMultiLine"
+            android:minHeight="@dimen/_50sdp"
+            android:padding="@dimen/layout_margin2" />
+
+        <TextView
+            style="@style/body4"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="@dimen/layout_margin2"
+            android:layout_marginTop="@dimen/layout_margin2"
+            android:text="10.	Bagaimana pola pendistribusian produk?"
+            android:textStyle="bold" />
+
+        <EditText
+            android:id="@+id/editText10"
+            style="@style/body4"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="@dimen/layout_margin2"
+            android:background="@drawable/bg_edit_text"
+            android:hint="Isikan data"
+            android:inputType="textMultiLine"
+            android:minHeight="@dimen/_50sdp"
+            android:padding="@dimen/layout_margin2" />
+
+        <TextView
+            style="@style/body4"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="@dimen/layout_margin2"
+            android:layout_marginTop="@dimen/layout_margin2"
+            android:text="11.	Apakah ada kriteria dalam pemilihan mitra untuk pendistribusian produk?"
+            android:textStyle="bold" />
+
+        <EditText
+            android:id="@+id/editText11"
+            style="@style/body4"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="@dimen/layout_margin2"
+            android:background="@drawable/bg_edit_text"
+            android:hint="Isikan data"
+            android:inputType="textMultiLine"
+            android:minHeight="@dimen/_50sdp"
+            android:padding="@dimen/layout_margin2" />
+
+        <TextView
+            style="@style/body4"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="@dimen/layout_margin2"
+            android:layout_marginTop="@dimen/layout_margin2"
+            android:text="12.	Apakah ada kesepakatan dalam bentuk kontrak dengan mitra/pembeli (Ya/tidak)?"
+            android:textStyle="bold" />
+
+        <EditText
+            android:id="@+id/editText12"
+            style="@style/body4"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="@dimen/layout_margin2"
+            android:background="@drawable/bg_edit_text"
+            android:hint="Isikan data"
+            android:inputType="textMultiLine"
+            android:minHeight="@dimen/_50sdp"
+            android:padding="@dimen/layout_margin2" />
+
+        <TextView
+            style="@style/body4"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="@dimen/layout_margin2"
+            android:layout_marginTop="@dimen/layout_margin2"
+            android:text="13.	Bagaimana proses pemesanan yang dilakukan oleh mitra/pembeli?"
+            android:textStyle="bold" />
+
+        <EditText
+            android:id="@+id/editText13"
+            style="@style/body4"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="@dimen/layout_margin2"
+            android:background="@drawable/bg_edit_text"
+            android:hint="Isikan data"
+            android:inputType="textMultiLine"
+            android:minHeight="@dimen/_50sdp"
+            android:padding="@dimen/layout_margin2" />
+
+        <TextView
+            style="@style/body4"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="@dimen/layout_margin2"
+            android:layout_marginTop="@dimen/layout_margin2"
+            android:text="14.	Bagaimana mekanisme penentuan harga jual produk?"
+            android:textStyle="bold" />
+
+        <EditText
+            android:id="@+id/editText14"
+            style="@style/body4"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="@dimen/layout_margin2"
+            android:background="@drawable/bg_edit_text"
+            android:hint="Isikan data"
+            android:inputType="textMultiLine"
+            android:minHeight="@dimen/_50sdp"
+            android:padding="@dimen/layout_margin2" />
+
+        <TextView
+            style="@style/body4"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="@dimen/layout_margin2"
+            android:layout_marginTop="@dimen/layout_margin2"
+            android:text="15.	Hal yang mendasari penentuan harga jual produk?"
+            android:textStyle="bold" />
+
+        <EditText
+            android:id="@+id/editText15"
+            style="@style/body4"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="@dimen/layout_margin2"
+            android:background="@drawable/bg_edit_text"
+            android:hint="Isikan data"
+            android:inputType="textMultiLine"
+            android:minHeight="@dimen/_50sdp"
+            android:padding="@dimen/layout_margin2" />
+
+        <TextView
+            style="@style/body4"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="@dimen/layout_margin2"
+            android:layout_marginTop="@dimen/layout_margin2"
+            android:text="16.	Bagaimana upaya jika terjadi keluhan mengenai kualitas produk?"
+            android:textStyle="bold" />
+
+        <EditText
+            android:id="@+id/editText16"
+            style="@style/body4"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="@dimen/layout_margin2"
+            android:background="@drawable/bg_edit_text"
+            android:hint="Isikan data"
+            android:inputType="textMultiLine"
+            android:minHeight="@dimen/_50sdp"
+            android:padding="@dimen/layout_margin2" />
+
+        <TextView
+            style="@style/body4"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="@dimen/layout_margin2"
+            android:layout_marginTop="@dimen/layout_margin2"
+            android:text="17.	Kendala dalam rantai pasok:"
+            android:textStyle="bold" />
+
+        <EditText
+            android:id="@+id/editText17"
+            style="@style/body4"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/_100sdp"
+            android:layout_marginHorizontal="@dimen/layout_margin2"
+            android:background="@drawable/bg_edit_text"
+            android:gravity="start"
+            android:hint="Isikan data"
+            android:inputType="textMultiLine"
+            android:minHeight="@dimen/_50sdp"
+            android:padding="@dimen/layout_margin2" />
+
+        <com.kusu.loadingbutton.LoadingButton
+            android:id="@+id/btnNext"
+            style="@style/ButtonPrimary"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="@dimen/layout_margin2"
+            android:layout_marginVertical="@dimen/layout_margin"
+            android:paddingLeft="10dp"
+            android:paddingRight="10dp"
+            android:text="Next"
+            android:textColor="@color/white"
+            app:layout_constraintEnd_toEndOf="@id/guidelineRight"
+            app:layout_constraintStart_toStartOf="@id/guidelineLeft"
+            app:layout_constraintTop_toBottomOf="@id/cvConfirmPassword"
+            app:lb_buttonColor="@color/primaryPurple"
+            app:lb_isCircular="false"
+            app:lb_isShadowEnable="true"
+            app:lb_loaderColor="@color/white"
+            app:lb_shadowHeight="5dp" />
+
+    </LinearLayout>
+</androidx.core.widget.NestedScrollView>

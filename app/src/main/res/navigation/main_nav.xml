@@ -11,8 +11,8 @@
         android:label="fragment_home"
         tools:layout="@layout/fragment_home" >
         <action
-            android:id="@+id/action_homeFragment_to_firstQuestionerFragment"
-            app:destination="@id/firstQuestionerFragment" />
+            android:id="@+id/action_homeFragment_to_firstQuestionerFragmentPetani"
+            app:destination="@id/firstQuestionerFragmentPetani" />
     </fragment>
     <fragment
         android:id="@+id/historyFragment"
@@ -20,13 +20,13 @@
         android:label="fragment_history"
         tools:layout="@layout/fragment_history" />
     <fragment
-        android:id="@+id/firstQuestionerFragment"
-        android:name="com.ftp.coffeenuity.presentation.home.questioner.FirstQuestionerFragment"
-        android:label="fragment_first_questioner"
-        tools:layout="@layout/fragment_first_questioner" >
+        android:id="@+id/firstQuestionerFragmentPetani"
+        android:name="com.ftp.coffeenuity.presentation.home.questioner.petani.FirstQuestionerFragmentPetani"
+        android:label="fragment_first_questioner_petani"
+        tools:layout="@layout/fragment_first_questioner_petani" >
         <action
-            android:id="@+id/action_firstQuestionerFragment_to_secondQuestionerFragment"
-            app:destination="@id/secondQuestionerFragment" />
+            android:id="@+id/action_firstQuestionerFragment_to_secondQuestionerFragmentPetani"
+            app:destination="@id/secondQuestionerFragmentPetani" />
     </fragment>
     <fragment
         android:id="@+id/resultFragment"
@@ -36,6 +36,9 @@
         <action
             android:id="@+id/action_resultFragment_to_strategiFragment"
             app:destination="@id/strategiFragment" />
+        <argument
+            android:name="response"
+            app:argType="com.ftp.coffeenuity.data.source.remote.network.response.PetaniResponse" />
     </fragment>
     <fragment
         android:id="@+id/adminHomeFragment"
@@ -43,13 +46,16 @@
         android:label="fragment_admin_home"
         tools:layout="@layout/fragment_admin_home" />
     <fragment
-        android:id="@+id/secondQuestionerFragment"
-        android:name="com.ftp.coffeenuity.presentation.home.questioner.SecondQuestionerFragment"
+        android:id="@+id/secondQuestionerFragmentPetani"
+        android:name="com.ftp.coffeenuity.presentation.home.questioner.petani.SecondQuestionerFragmentPetani"
         android:label="fragment_second_questioner"
-        tools:layout="@layout/fragment_second_questioner" >
+        tools:layout="@layout/fragment_second_questioner_petani" >
         <action
             android:id="@+id/action_secondQuestionerFragment_to_resultFragment"
             app:destination="@id/resultFragment" />
+        <argument
+            android:name="firstQuestioner"
+            app:argType="com.ftp.coffeenuity.domain.model.petani.PetaniFirstQuestioner" />
     </fragment>
     <fragment
         android:id="@+id/strategiFragment"

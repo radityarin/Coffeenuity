@@ -5,6 +5,7 @@
       <map>
         <entry key="app/src/main/res/drawable-v24/ic_circle_not_selected.xml" value="0.3055555555555556" />
         <entry key="app/src/main/res/drawable-v24/ic_circle_selected.xml" value="0.3055555555555556" />
+        <entry key="app/src/main/res/drawable/bg_edit_text.xml" value="0.1" />
         <entry key="app/src/main/res/drawable/bottom_nav_selector.xml" value="0.115625" />
         <entry key="app/src/main/res/drawable/ic_baseline_account_circle_24.xml" value="0.30923076923076925" />
         <entry key="app/src/main/res/drawable/ic_baseline_account_circle_24_unselected.xml" value="0.30923076923076925" />
@@ -20,11 +21,19 @@
         <entry key="app/src/main/res/layout/activity_on_boarding.xml" value="0.25" />
         <entry key="app/src/main/res/layout/activity_register.xml" value="0.2833333333333333" />
         <entry key="app/src/main/res/layout/activity_splash.xml" value="0.29791666666666666" />
+        <entry key="app/src/main/res/layout/fragment_first_questioner.xml" value="0.29791666666666666" />
+        <entry key="app/src/main/res/layout/fragment_first_questioner_petani.xml" value="0.2828882294757666" />
+        <entry key="app/src/main/res/layout/fragment_first_questioner_roaster.xml" value="0.1" />
+        <entry key="app/src/main/res/layout/fragment_first_questioner_tengkulak.xml" value="0.24761904761904763" />
         <entry key="app/src/main/res/layout/fragment_history.xml" value="0.29791666666666666" />
         <entry key="app/src/main/res/layout/fragment_home.xml" value="0.25" />
-        <entry key="app/src/main/res/layout/fragment_profile.xml" value="0.29791666666666666" />
+        <entry key="app/src/main/res/layout/fragment_profile.xml" value="0.25" />
+        <entry key="app/src/main/res/layout/fragment_result.xml" value="0.2833333333333333" />
         <entry key="app/src/main/res/layout/fragment_second_questioner.xml" value="0.29791666666666666" />
+        <entry key="app/src/main/res/layout/fragment_second_questioner_petani.xml" value="0.335" />
         <entry key="app/src/main/res/layout/item_onboarding.xml" value="0.29791666666666666" />
+        <entry key="app/src/main/res/layout/item_questioner_range.xml" value="0.29791666666666666" />
+        <entry key="app/src/main/res/layout/spinner_pekerjaan_item.xml" value="0.29791666666666666" />
         <entry key="app/src/main/res/menu/bottom_nav_menu.xml" value="0.29791666666666666" />
       </map>
     </option>

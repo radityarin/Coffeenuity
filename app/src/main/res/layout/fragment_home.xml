@@ -12,6 +12,7 @@
         android:orientation="vertical">
 
         <TextView
+            android:id="@+id/tvWelcome"
             style="@style/headline4"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"

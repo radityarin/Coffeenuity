@@ -10,5 +10,16 @@
     <color name="primary">#000000</color>
     <color name="primaryPurple">#595DE5</color>
 
-    <color name="backgroundColor">#E5E5E5</color>
+    <color name="backgroundColor">#F3F3F3</color>
+    // Alert and Status
+    <color name="colorRose50">#AF1254</color>
+    <color name="colorRose10">#F7E8EE</color>
+    <color name="colorOrange50">#F59F00</color>
+    <color name="colorOrange10">#FFEDCC</color>
+    <color name="colorYellow50">#EDC817</color>
+    <color name="colorYellow20">#FBF4D0</color>
+    <color name="colorGreen50">#3BA064</color>
+    <color name="colorGreen10">#ECF6F0</color>
+    <color name="colorSky50">#229BD8</color>
+    <color name="colorSky10">#E8F5FB</color>
 </resources>

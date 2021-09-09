@@ -23,19 +23,6 @@ import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 import java.util.concurrent.TimeUnit
 
-val databaseModule = module {
-//    single { get<AppDatabase>().appDao() }
-//    single {
-////        val passphrase: ByteArray = SQLiteDatabase.getBytes("radityarin".toCharArray())
-////        val factory = SupportFactory(passphrase)
-//        Room.databaseBuilder(
-//            androidContext(),
-//            AppDatabase::class.java, "coffenuity.db"
-//        ).fallbackToDestructiveMigration()
-//            .build()
-//    }
-}
-
 val useCaseModule = module {
     single<FuzzyAHPUseCase> { FuzzyAHPInteractor(get()) }
     single<AuthUseCase> { AuthInteractor(get()) }

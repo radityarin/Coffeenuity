@@ -1,5 +1,6 @@
 package com.ftp.coffeenuity.data.source.remote
 
+import com.ftp.coffeenuity.data.pref.ProfilePrefs
 import com.ftp.coffeenuity.data.source.remote.network.ApiResponse
 import com.ftp.coffeenuity.data.source.remote.network.ApiServiceFuzzyAHP
 import com.ftp.coffeenuity.data.source.remote.network.request.PetaniRequest
@@ -24,12 +25,8 @@ class RemoteDataSource(
     private val apiServiceFuzzyAHP: ApiServiceFuzzyAHP
 ) {
 
-    private val mPostsCollection =
-        FirebaseFirestore.getInstance().collection(Constants.COLLECTION_POST)
     private val mUsersCollection =
         FirebaseFirestore.getInstance().collection(Constants.COLLECTION_USER)
-    private val mStoryCollection =
-        FirebaseFirestore.getInstance().collection(Constants.COLLECTION_STORY)
 
 //    fun getAllPosts() = flow<ApiResponse<List<PostResponse>>> {
 //        val snapshot = mPostsCollection.get().await()
@@ -143,17 +140,17 @@ class RemoteDataSource(
         emit(Resource.Error(it.message.toString()))
     }.flowOn(Dispatchers.IO)
 
-//    fun getUserWithIDUser(idUser: String) = flow<ApiResponse<UserResponse>> {
-//        val snapshot =
-//            mUsersCollection.document(idUser)
-//                .get().await()
-//        val user = snapshot.toObject(UserResponse::class.java)
-//        if (user != null) {
-//            emit(ApiResponse.Success(user))
-//        }
-//    }.catch {
-//        emit(ApiResponse.Error(it.message.toString()))
-//    }.flowOn(Dispatchers.IO)
+    fun getUserWithIDUser(idUser: String) = flow<Resource<User>> {
+        val snapshot =
+            mUsersCollection.document(idUser)
+                .get().await()
+        val user = snapshot.toObject(User::class.java)
+        if (user != null) {
+            emit(Resource.Success(user))
+        }
+    }.catch {
+        emit(Resource.Error(it.message.toString()))
+    }.flowOn(Dispatchers.IO)
 //
 //    fun getAllUsers() = flow<ApiResponse<List<UserResponse>>> {
 //        val snapshot =

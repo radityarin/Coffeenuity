@@ -11,6 +11,9 @@ class AuthInteractor(private val repository: AppRepository) : AuthUseCase {
     override fun login(email: String, password: String): Flow<Resource<AuthResult>> =
         repository.loginUser(email, password)
 
+    override fun getUserWithIDUser(idUser: String): Flow<Resource<User>> =
+        repository.getUserWithIDUser(idUser)
+
     override fun register(email: String, password: String): Flow<Resource<AuthResult>> =
         repository.registerUser(email, password)
 

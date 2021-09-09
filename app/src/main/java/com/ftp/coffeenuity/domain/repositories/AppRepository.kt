@@ -16,4 +16,5 @@ interface AppRepository {
     fun addUsers(user: User): Flow<Resource<Boolean>>
     fun getIndeksKeberlanjutanPetani(petaniRequest: PetaniRequest): Flow<Resource<PetaniResponse>>
 
+    fun getUserWithIDUser(idUser: String): Flow<Resource<User>>
 }

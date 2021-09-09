@@ -3,6 +3,7 @@ package com.ftp.coffeenuity.presentation.auth.login
 import android.content.Intent
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
+import com.ftp.coffeenuity.data.pref.ProfilePrefs
 import com.ftp.coffeenuity.data.utils.Resource
 import com.ftp.coffeenuity.databinding.ActivityLoginBinding
 import com.ftp.coffeenuity.presentation.MainActivity
@@ -15,6 +16,7 @@ class LoginActivity : AppCompatActivity() {
     private var _binding: ActivityLoginBinding? = null
     private val binding get() = _binding!!
     private val authViewModel: AuthViewModel by viewModel()
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         _binding = ActivityLoginBinding.inflate(layoutInflater)
@@ -35,7 +37,9 @@ class LoginActivity : AppCompatActivity() {
                             binding.btnLogin.showLoading()
                         }
                         is Resource.Success -> {
+                            ProfilePrefs.idFirebase = it.data?.user?.uid.toString()
                             startActivity(Intent(this@LoginActivity, MainActivity::class.java))
+                            getCurrentUserData()
                             binding.btnLogin.hideLoading()
                         }
                         is Resource.Error -> {
@@ -45,5 +49,32 @@ class LoginActivity : AppCompatActivity() {
                 }
             }
         }
+    }
+
+    private fun getCurrentUserData() {
+        authViewModel.getUserWithIDUser(ProfilePrefs.idFirebase).observe(this){
+            when (it) {
+                is Resource.Loading -> {
+                }
+                is Resource.Success -> {
+                    val user = it.data
+                    if (user!=null) {
+                        with(binding) {
+                            ProfilePrefs.apply {
+                                fullname = user.nama
+                                role = user.role
+                                alamat = user.pengalamanUsahaTani
+                                usia = user.usia
+                                jumlahTenagaKerja = user.jumlahTenagaKerja
+                                sifatUsaha = user.sifatUsaha
+                                jenisKelamin = user.jenisKelamin
+                            }
+                        }
+                    }
+                }
+                else -> println("Error")
+            }
+        }
+
     }
 }

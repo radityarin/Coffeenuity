@@ -1,14 +1,134 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".presentation.home.HistoryFragment">
 
-    <!-- TODO: Update blank fragment layout -->
-    <TextView
+    <ImageView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:text="@string/hello_blank_fragment" />
+        android:scaleType="centerCrop"
+        android:src="@drawable/bg_profile" />
 
-</FrameLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:layout_margin="@dimen/layout_margin"
+        android:background="@drawable/bg_edit_text"
+        android:orientation="vertical"
+        android:padding="@dimen/layout_margin2"
+        android:text="@string/hello_blank_fragment">
+
+        <TextView
+            android:id="@+id/tvName"
+            style="@style/subtitle2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textAlignment="center"
+            tools:text="Jane Doe" />
+
+        <TextView
+            android:id="@+id/tvPekerjaan"
+            style="@style/caption"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textAlignment="center"
+            tools:text="Petani" />
+
+        <TextView
+            style="@style/caption"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/layout_margin2"
+            android:text="Usia"
+            android:textColor="@color/colorTextGray" />
+
+        <TextView
+            android:id="@+id/tvUsia"
+            style="@style/caption"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/layout_margin4"
+            tools:text="23 Tahun" />
+
+        <TextView
+            style="@style/caption"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/layout_margin4"
+            android:text="Alamat"
+            android:textColor="@color/colorTextGray" />
+
+        <TextView
+            android:id="@+id/tvAlamat"
+            style="@style/caption"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/layout_margin4"
+            tools:text="23 Tahun" />
+
+        <TextView
+            style="@style/caption"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/layout_margin4"
+            android:text="Jenis Kelamin"
+            android:textColor="@color/colorTextGray" />
+
+        <TextView
+            android:id="@+id/tvJenisKelamin"
+            style="@style/caption"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/layout_margin4"
+            tools:text="23 Tahun" />
+
+        <TextView
+            style="@style/caption"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/layout_margin4"
+            android:text="Sifat usaha"
+            android:textColor="@color/colorTextGray" />
+
+        <TextView
+            android:id="@+id/tvSifatUsaha"
+            style="@style/caption"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/layout_margin4"
+            tools:text="23 Tahun" />
+
+        <TextView
+            style="@style/caption"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/layout_margin4"
+            android:text="Jumlah tenaga kerja"
+            android:textColor="@color/colorTextGray" />
+
+        <TextView
+            android:id="@+id/tvJumlahTenagaKerja"
+            style="@style/caption"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/layout_margin4"
+            tools:text="23 Tahun" />
+
+    </LinearLayout>
+
+    <Button
+        android:id="@+id/btnLogOut"
+        style="@style/ButtonPrimary"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_marginHorizontal="@dimen/layout_margin"
+        android:layout_marginBottom="@dimen/layout_margin2"
+        android:backgroundTint="@color/white"
+        android:text="Keluar"
+        android:textColor="@color/black" />
+
+</RelativeLayout>

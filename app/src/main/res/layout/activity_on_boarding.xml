@@ -31,6 +31,20 @@
         app:layout_constraintEnd_toEndOf="@id/guidelineRight"
         app:layout_constraintTop_toTopOf="parent" />
 
+    <TextView
+        android:id="@+id/tvWelcome"
+        style="@style/headline5"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/_60sdp"
+        android:background="?attr/selectableItemBackground"
+        android:elevation="4dp"
+        android:visibility="gone"
+        android:text="Selamat Datang"
+        app:layout_constraintStart_toStartOf="@id/guidelineLeft"
+        app:layout_constraintEnd_toEndOf="@id/guidelineRight"
+        app:layout_constraintTop_toTopOf="parent" />
+
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/rvOnBoarding"
         android:layout_width="wrap_content"

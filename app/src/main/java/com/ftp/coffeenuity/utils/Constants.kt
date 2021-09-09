@@ -14,4 +14,8 @@ object Constants {
 
     const val NETWORK_TIME_OUT: Long = 60
     const val SPLASH_TIME_OUT:Long = 1000 // 1 sec
+
+    const val PETANI = "Petani"
+    const val TENGKULAK = "Tengkulak"
+    const val ROASTERY = "Roastery"
 }

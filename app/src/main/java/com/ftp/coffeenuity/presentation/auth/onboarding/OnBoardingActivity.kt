@@ -8,7 +8,6 @@ import android.view.WindowManager
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.LinearSnapHelper
-import androidx.recyclerview.widget.RecyclerView
 import androidx.recyclerview.widget.SnapHelper
 import com.ftp.coffeenuity.adapter.OnBoardingAdapter
 import com.ftp.coffeenuity.data.pref.ProfilePrefs
@@ -19,7 +18,6 @@ import com.ftp.coffeenuity.presentation.auth.login.LoginActivity
 import com.ftp.coffeenuity.presentation.auth.register.RegisterActivity
 import com.ftp.coffeenuity.utils.helper.SnapOnScrollListener
 import com.ftp.coffeenuity.utils.helper.SnapOnScrollListener.Companion.NOTIFY_ON_SCROLL
-import com.google.firebase.auth.FirebaseAuth
 
 
 class OnBoardingActivity : AppCompatActivity() {
@@ -30,10 +28,11 @@ class OnBoardingActivity : AppCompatActivity() {
 
     override fun onStart() {
         super.onStart()
-        if ( FirebaseAuth.getInstance().currentUser.uid.isNotEmpty()){
-            startActivity(Intent(this@OnBoardingActivity,MainActivity::class.java))
+        if (ProfilePrefs.idFirebase.isNotEmpty()) {
+            startActivity(Intent(this@OnBoardingActivity, MainActivity::class.java))
         }
     }
+
     override fun onCreate(savedInstanceState: Bundle?) {
         requestWindowFeature(Window.FEATURE_NO_TITLE)
         window.setFlags(
@@ -49,9 +48,23 @@ class OnBoardingActivity : AppCompatActivity() {
     }
 
     private fun initClick() {
-        with(binding){
-            btnRegister.setOnClickListener { startActivity(Intent(this@OnBoardingActivity,RegisterActivity::class.java)) }
-            btnLogin.setOnClickListener { startActivity(Intent(this@OnBoardingActivity,LoginActivity::class.java)) }
+        with(binding) {
+            btnRegister.setOnClickListener {
+                startActivity(
+                    Intent(
+                        this@OnBoardingActivity,
+                        RegisterActivity::class.java
+                    )
+                )
+            }
+            btnLogin.setOnClickListener {
+                startActivity(
+                    Intent(
+                        this@OnBoardingActivity,
+                        LoginActivity::class.java
+                    )
+                )
+            }
         }
     }
 
@@ -70,6 +83,7 @@ class OnBoardingActivity : AppCompatActivity() {
                     rvOnBoarding.smoothScrollToPosition(firstVisiblePosition + 1)
                     btnLogin.visibility = View.VISIBLE
                     btnRegister.visibility = View.VISIBLE
+                    tvWelcome.visibility = View.VISIBLE
                     recyclerViewIndicator.visibility = View.GONE
                     btnNext.visibility = View.GONE
                     btnSkip.visibility = View.GONE
@@ -77,6 +91,7 @@ class OnBoardingActivity : AppCompatActivity() {
                     rvOnBoarding.smoothScrollToPosition(firstVisiblePosition + 1)
                     btnLogin.visibility = View.GONE
                     btnRegister.visibility = View.GONE
+                    tvWelcome.visibility = View.GONE
                     recyclerViewIndicator.visibility = View.VISIBLE
                     btnNext.visibility = View.VISIBLE
                     btnSkip.visibility = View.VISIBLE
@@ -87,22 +102,28 @@ class OnBoardingActivity : AppCompatActivity() {
                 moveToLandingActivity()
             }
 
-            rvOnBoarding.addOnScrollListener(SnapOnScrollListener(helper, NOTIFY_ON_SCROLL) { position ->
-                // Do what you want
-                if (position==2){
-                    btnLogin.visibility = View.VISIBLE
-                    btnRegister.visibility = View.VISIBLE
-                    recyclerViewIndicator.visibility = View.GONE
-                    btnNext.visibility = View.GONE
-                    btnSkip.visibility = View.GONE
-                } else {
-                    btnLogin.visibility = View.GONE
-                    btnRegister.visibility = View.GONE
-                    recyclerViewIndicator.visibility = View.VISIBLE
-                    btnNext.visibility = View.VISIBLE
-                    btnSkip.visibility = View.VISIBLE
-                }
-            })
+            rvOnBoarding.addOnScrollListener(
+                SnapOnScrollListener(
+                    helper,
+                    NOTIFY_ON_SCROLL
+                ) { position ->
+                    // Do what you want
+                    if (position == 2) {
+                        btnLogin.visibility = View.VISIBLE
+                        btnRegister.visibility = View.VISIBLE
+                        tvWelcome.visibility = View.VISIBLE
+                        recyclerViewIndicator.visibility = View.GONE
+                        btnNext.visibility = View.GONE
+                        btnSkip.visibility = View.GONE
+                    } else {
+                        btnLogin.visibility = View.GONE
+                        btnRegister.visibility = View.GONE
+                        tvWelcome.visibility = View.GONE
+                        recyclerViewIndicator.visibility = View.VISIBLE
+                        btnNext.visibility = View.VISIBLE
+                        btnSkip.visibility = View.VISIBLE
+                    }
+                })
         }
     }
 

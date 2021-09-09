@@ -17,4 +17,6 @@ class AuthViewModel(
 
     fun addUser(user: User) = authUseCase.addUser(user).asLiveData()
 
+    fun getUserWithIDUser(idUser: String) = authUseCase.getUserWithIDUser(idUser).asLiveData()
+
 }
