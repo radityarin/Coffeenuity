@@ -8,9 +8,9 @@ import kotlinx.parcelize.Parcelize
 @Parcelize
 data class IndeksBerkelanjutan(
     @SerializedName("ekonomi")
-    var ekonomi: Ekonomi,
+    var ekonomi: Ekonomi = Ekonomi(),
     @SerializedName("lingkungan")
-    var lingkungan: Lingkungan,
+    var lingkungan: Lingkungan = Lingkungan(),
     @SerializedName("sosial")
-    var sosial: Sosial
+    var sosial: Sosial = Sosial()
 ) : Parcelable

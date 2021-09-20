@@ -54,6 +54,7 @@
             android:textStyle="bold" />
 
         <EditText
+            android:id="@+id/editText1"
             style="@style/body4"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -74,6 +75,7 @@
             android:textStyle="bold" />
 
         <EditText
+            android:id="@+id/editText2"
             style="@style/body4"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -94,6 +96,7 @@
             android:textStyle="bold" />
 
         <EditText
+            android:id="@+id/editText3"
             style="@style/body4"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -114,6 +117,7 @@
             android:textStyle="bold" />
 
         <EditText
+            android:id="@+id/editText4"
             style="@style/body4"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -134,6 +138,7 @@
             android:textStyle="bold" />
 
         <EditText
+            android:id="@+id/editText5"
             style="@style/body4"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -154,6 +159,7 @@
             android:textStyle="bold" />
 
         <EditText
+            android:id="@+id/editText6"
             style="@style/body4"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -174,6 +180,7 @@
             android:textStyle="bold" />
 
         <EditText
+            android:id="@+id/editText7"
             style="@style/body4"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -194,6 +201,7 @@
             android:textStyle="bold" />
 
         <EditText
+            android:id="@+id/editText8"
             style="@style/body4"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -214,6 +222,7 @@
             android:textStyle="bold" />
 
         <EditText
+            android:id="@+id/editText9"
             style="@style/body4"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -234,6 +243,7 @@
             android:textStyle="bold" />
 
         <EditText
+            android:id="@+id/editText10"
             style="@style/body4"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -254,6 +264,7 @@
             android:textStyle="bold" />
 
         <EditText
+            android:id="@+id/editText11"
             style="@style/body4"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -274,6 +285,7 @@
             android:textStyle="bold" />
 
         <EditText
+            android:id="@+id/editText12"
             style="@style/body4"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -294,6 +306,7 @@
             android:textStyle="bold" />
 
         <EditText
+            android:id="@+id/editText13"
             style="@style/body4"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -314,6 +327,7 @@
             android:textStyle="bold" />
 
         <EditText
+            android:id="@+id/editText14"
             style="@style/body4"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -334,6 +348,7 @@
             android:textStyle="bold" />
 
         <EditText
+            android:id="@+id/editText15"
             style="@style/body4"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -354,6 +369,7 @@
             android:textStyle="bold" />
 
         <EditText
+            android:id="@+id/editText16"
             style="@style/body4"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -374,6 +390,7 @@
             android:textStyle="bold" />
 
         <EditText
+            android:id="@+id/editText17"
             style="@style/body4"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -394,6 +411,7 @@
             android:textStyle="bold" />
 
         <EditText
+            android:id="@+id/editText18"
             style="@style/body4"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -414,6 +432,7 @@
             android:textStyle="bold" />
 
         <EditText
+            android:id="@+id/editText19"
             style="@style/body4"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -434,6 +453,7 @@
             android:textStyle="bold" />
 
         <EditText
+            android:id="@+id/editText20"
             style="@style/body4"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -455,6 +475,7 @@
             android:textStyle="bold" />
 
         <EditText
+            android:id="@+id/editText21"
             style="@style/body4"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -476,6 +497,7 @@
             android:textStyle="bold" />
 
         <EditText
+            android:id="@+id/editText22"
             style="@style/body4"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -487,7 +509,7 @@
             android:padding="@dimen/layout_margin2" />
 
         <com.kusu.loadingbutton.LoadingButton
-            android:id="@+id/btnRegister"
+            android:id="@+id/btnNext"
             style="@style/ButtonPrimary"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"

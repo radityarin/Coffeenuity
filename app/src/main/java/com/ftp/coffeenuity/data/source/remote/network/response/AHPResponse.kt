@@ -6,11 +6,11 @@ import com.google.gson.annotations.SerializedName
 import kotlinx.parcelize.Parcelize
 
 @Parcelize
-data class PetaniResponse(
+data class AHPResponse(
     @SerializedName("data")
-    var indeksBerkelanjutan: IndeksBerkelanjutan,
+    var indeksBerkelanjutan: IndeksBerkelanjutan = IndeksBerkelanjutan(),
     @SerializedName("message")
-    var message: String,
+    var message: String = "",
     @SerializedName("success")
-    var success: Boolean
+    var success: Boolean = false
 ) : Parcelable

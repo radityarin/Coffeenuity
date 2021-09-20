@@ -1,10 +1,12 @@
 package com.ftp.coffeenuity.data.source
 
-import android.content.Context
 import com.ftp.coffeenuity.data.source.remote.RemoteDataSource
-import com.ftp.coffeenuity.data.source.remote.network.request.PetaniRequest
-import com.ftp.coffeenuity.data.source.remote.network.response.PetaniResponse
+import com.ftp.coffeenuity.data.source.remote.network.request.AHPRequest
+import com.ftp.coffeenuity.data.source.remote.network.response.AHPResponse
 import com.ftp.coffeenuity.data.utils.Resource
+import com.ftp.coffeenuity.domain.model.QuestionerPetani
+import com.ftp.coffeenuity.domain.model.QuestionerRoastery
+import com.ftp.coffeenuity.domain.model.QuestionerTengkulak
 import com.ftp.coffeenuity.domain.model.User
 import com.ftp.coffeenuity.domain.repositories.AppRepository
 import com.google.firebase.auth.AuthResult
@@ -13,7 +15,6 @@ import kotlinx.coroutines.flow.first
 import kotlinx.coroutines.flow.flow
 
 class AppRepositoryImpl(
-//    private val localDataSource: LocalDataSource,
     private val remoteDataSource: RemoteDataSource,
 ) : AppRepository {
 
@@ -25,12 +26,38 @@ class AppRepositoryImpl(
 
     override fun addUsers(user: User): Flow<Resource<Boolean>> = remoteDataSource.addUser(user)
 
-    override fun getUserWithIDUser(idUser: String): Flow<Resource<User>> = remoteDataSource.getUserWithIDUser(idUser = idUser)
+    override fun getUserWithIDUser(idUser: String): Flow<Resource<User>> =
+        remoteDataSource.getUserWithIDUser(idUser = idUser)
 
-    override fun getIndeksKeberlanjutanPetani(petaniRequest: PetaniRequest): Flow<Resource<PetaniResponse>> =
+    override fun getIndeksKeberlanjutanPetani(AHPRequest: AHPRequest): Flow<Resource<AHPResponse>> =
         flow {
             emit(Resource.Loading())
-            val apiResponse = remoteDataSource.getIndeksKeberlanjutanPetani(petaniRequest).first()
+            val apiResponse = remoteDataSource.getIndeksKeberlanjutanPetani(AHPRequest).first()
             emit(Resource.Success(apiResponse))
         }
+
+    override fun addQuestionerPetani(questioner: QuestionerPetani) =
+        remoteDataSource.addQuestionerPetani(questioner)
+
+    override fun addQuestionerTengkulak(questioner: QuestionerTengkulak) =
+        remoteDataSource.addQuestionerTengkulak(questioner)
+
+    override fun addQuestionerRoastery(questioner: QuestionerRoastery) =
+        remoteDataSource.addQuestionerRoastery(questioner)
+
+    override fun getAllQuestionerPetani() = remoteDataSource.getAllQuestionerPetani()
+
+    override fun getAllQuestionerRoastery() = remoteDataSource.getAllQuestionerRoastery()
+
+    override fun getAllQuestionerTengkulak() = remoteDataSource.getAllQuestionerTengkulak()
+
+    override fun getListQuestionerPetaniWithSpecificID(idUser: String) =
+        remoteDataSource.getListQuestionerPetaniWithSpecificID(idUser)
+
+    override fun getListQuestionerRoasteryWithSpecificID(idUser: String) =
+        remoteDataSource.getListQuestionerRoasteryWithSpecificID(idUser)
+
+    override fun getListQuestionerTengkulakWithSpecificID(idUser: String) =
+        remoteDataSource.getListQuestionerTengkulakWithSpecificID(idUser)
+
 }

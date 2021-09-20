@@ -8,15 +8,16 @@ import com.ftp.coffeenuity.domain.usecases.auth.AuthInteractor
 import com.ftp.coffeenuity.domain.usecases.auth.AuthUseCase
 import com.ftp.coffeenuity.domain.usecases.fuzzy.FuzzyAHPInteractor
 import com.ftp.coffeenuity.domain.usecases.fuzzy.FuzzyAHPUseCase
+import com.ftp.coffeenuity.domain.usecases.questioner.QuestionerInteractor
+import com.ftp.coffeenuity.domain.usecases.questioner.QuestionerUseCase
 import com.ftp.coffeenuity.presentation.auth.AuthViewModel
-import com.ftp.coffeenuity.presentation.auth.FuzzyViewModel
+import com.ftp.coffeenuity.presentation.home.questioner.FuzzyViewModel
+import com.ftp.coffeenuity.presentation.QuestionerViewModel
 import com.ftp.coffeenuity.utils.BaseEndpoints.BASE_APP_URL
 import com.ftp.coffeenuity.utils.Constants
 import com.google.firebase.auth.FirebaseAuth
-import com.google.firebase.storage.FirebaseStorage
 import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
-import org.koin.android.ext.koin.androidContext
 import org.koin.android.viewmodel.dsl.viewModel
 import org.koin.dsl.module
 import retrofit2.Retrofit
@@ -26,11 +27,13 @@ import java.util.concurrent.TimeUnit
 val useCaseModule = module {
     single<FuzzyAHPUseCase> { FuzzyAHPInteractor(get()) }
     single<AuthUseCase> { AuthInteractor(get()) }
+    single<QuestionerUseCase> { QuestionerInteractor(get()) }
 }
 
 val viewModelModule = module {
     viewModel { AuthViewModel(get()) }
     viewModel { FuzzyViewModel(get()) }
+    viewModel { QuestionerViewModel(get()) }
 }
 
 val networkModule = module {

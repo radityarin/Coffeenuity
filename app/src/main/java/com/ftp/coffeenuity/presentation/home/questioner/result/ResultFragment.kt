@@ -1,18 +1,14 @@
-package com.ftp.coffeenuity.presentation.home.questioner
+package com.ftp.coffeenuity.presentation.home.questioner.result
 
 import android.os.Bundle
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
 import androidx.navigation.fragment.navArgs
 import com.ftp.coffeenuity.R
-import com.ftp.coffeenuity.adapter.QuestionRangeAdapter
 import com.ftp.coffeenuity.databinding.FragmentResultBinding
-import com.ftp.coffeenuity.databinding.FragmentSecondQuestionerPetaniBinding
-import com.ftp.coffeenuity.presentation.auth.FuzzyViewModel
-import org.koin.android.viewmodel.ext.android.viewModel
 
 class ResultFragment : Fragment() {
 
@@ -36,16 +32,19 @@ class ResultFragment : Fragment() {
 
     private fun initView() {
         val response = args.response
-        with(binding){
-            val indeksEkonomi = "${response.indeksBerkelanjutan.ekonomi.indeksBerkelanjutan * 100}".take(4) + " %"
+        with(binding) {
+            val indeksEkonomi =
+                "${response.indeksBerkelanjutan.ekonomi.indeksBerkelanjutan * 100}".take(4) + " %"
             tvKategoriEkonomi.text = response.indeksBerkelanjutan.ekonomi.kategori
             tvIndeksKeberlanjutanEkonomi.text = indeksEkonomi
 
-            val indeksSosial = "${response.indeksBerkelanjutan.sosial.indeksBerkelanjutan * 100}".take(4) + " %"
+            val indeksSosial =
+                "${response.indeksBerkelanjutan.sosial.indeksBerkelanjutan * 100}".take(4) + " %"
             tvKategoriSosial.text = response.indeksBerkelanjutan.sosial.kategori
             tvIndeksKeberlanjutanSosial.text = indeksSosial
 
-            val indeksLingkungan = "${response.indeksBerkelanjutan.lingkungan.indeksBerkelanjutan * 100}".take(4) + " %"
+            val indeksLingkungan =
+                "${response.indeksBerkelanjutan.lingkungan.indeksBerkelanjutan * 100}".take(4) + " %"
             tvKategoriLingkungan.text = response.indeksBerkelanjutan.lingkungan.kategori
             tvIndeksKeberlanjutanLingkungan.text = indeksLingkungan
         }

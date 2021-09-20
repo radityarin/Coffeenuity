@@ -2,7 +2,7 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.ftp.coffeenuity">
 
-    <uses-permission android:name="android.permission.INTERNET"/>
+    <uses-permission android:name="android.permission.INTERNET" />
 
     <application
         android:name=".MyApplication"
@@ -13,11 +13,14 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Coffeenuity">
         <activity
+            android:name=".presentation.admin.AdminMainActivity"
+            android:exported="true" />
+        <activity
             android:name=".presentation.auth.register.RegisterActivity"
             android:exported="true" />
         <activity
             android:name=".presentation.auth.onboarding.OnBoardingActivity"
-            android:exported="true" >
+            android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -29,11 +32,10 @@
             android:exported="true" />
         <activity
             android:name=".presentation.auth.splash.SplashActivity"
-            android:exported="true" >
-        </activity>
+            android:exported="true"></activity>
         <activity
             android:name=".presentation.MainActivity"
-            android:exported="true"/>
+            android:exported="true" />
     </application>
 
 </manifest>

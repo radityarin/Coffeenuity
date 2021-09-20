@@ -1,37 +1,32 @@
 package com.ftp.coffeenuity.presentation.admin
 
+import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.view.LayoutInflater
-import android.view.View
-import android.view.ViewGroup
-import androidx.fragment.app.Fragment
+import android.view.*
+import com.ftp.coffeenuity.R
 import com.ftp.coffeenuity.adapter.QuestionerHistoryPetaniAdapter
 import com.ftp.coffeenuity.adapter.QuestionerHistoryRoasteryAdapter
 import com.ftp.coffeenuity.adapter.QuestionerHistoryTengkulakAdapter
 import com.ftp.coffeenuity.data.utils.Resource
+import com.ftp.coffeenuity.databinding.ActivityAdminMainBinding
+import com.ftp.coffeenuity.databinding.ActivityMainBinding
 import com.ftp.coffeenuity.databinding.FragmentAdminHomeBinding
 import com.ftp.coffeenuity.presentation.QuestionerViewModel
 import org.koin.android.viewmodel.ext.android.viewModel
 
-class AdminHomeFragment : Fragment() {
+class AdminMainActivity : AppCompatActivity() {
 
-    private var _binding: FragmentAdminHomeBinding? = null
-    private val binding get() = _binding!!
+    private lateinit var binding: ActivityAdminMainBinding
     private lateinit var questionerHistoryPetaniAdapter: QuestionerHistoryPetaniAdapter
     private lateinit var questionerHistoryRoasteryAdapter: QuestionerHistoryRoasteryAdapter
     private lateinit var questionerHistoryTengkulakAdapter: QuestionerHistoryTengkulakAdapter
     private val questionerViewModel: QuestionerViewModel by viewModel()
 
-    override fun onCreateView(
-        inflater: LayoutInflater, container: ViewGroup?,
-        savedInstanceState: Bundle?
-    ): View {
-        _binding = FragmentAdminHomeBinding.inflate(inflater, container, false)
-        return binding.root
-    }
-
-    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-        super.onViewCreated(view, savedInstanceState)
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        binding = ActivityAdminMainBinding.inflate(layoutInflater)
+        val view = binding.root
+        setContentView(view)
         initClick()
         initView()
         setupAdapter()
@@ -40,7 +35,7 @@ class AdminHomeFragment : Fragment() {
 
     private fun observe() {
         questionerViewModel.getAllQuestionerPetani()
-            .observe(viewLifecycleOwner) {
+            .observe(this) {
                 when (it) {
                     is Resource.Loading -> {
                     }
@@ -54,7 +49,7 @@ class AdminHomeFragment : Fragment() {
                 }
             }
         questionerViewModel.getAllQuestionerRoastery()
-            .observe(viewLifecycleOwner) {
+            .observe(this) {
                 when (it) {
                     is Resource.Loading -> {
                     }
@@ -68,7 +63,7 @@ class AdminHomeFragment : Fragment() {
                 }
             }
         questionerViewModel.getAllQuestionerTengkulak()
-            .observe(viewLifecycleOwner) {
+            .observe(this) {
                 when (it) {
                     is Resource.Loading -> {
                     }

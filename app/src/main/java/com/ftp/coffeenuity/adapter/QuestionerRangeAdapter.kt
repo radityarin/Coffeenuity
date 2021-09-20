@@ -3,14 +3,10 @@ package com.ftp.coffeenuity.adapter
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
-import com.bumptech.glide.Glide
-import com.ftp.coffeenuity.databinding.ItemOnboardingBinding
 import com.ftp.coffeenuity.databinding.ItemQuestionerRangeBinding
-import com.ftp.coffeenuity.domain.model.OnBoarding
 import com.ftp.coffeenuity.domain.model.QuestionerRange
-import org.koin.core.parameter.parametersOf
 
-class QuestionRangeAdapter : RecyclerView.Adapter<QuestionRangeAdapter.OnBoardingViewHolder>() {
+class QuestionerRangeAdapter : RecyclerView.Adapter<QuestionerRangeAdapter.OnBoardingViewHolder>() {
 
     private val items = mutableListOf<QuestionerRange?>()
 
@@ -45,6 +41,7 @@ class QuestionRangeAdapter : RecyclerView.Adapter<QuestionRangeAdapter.OnBoardin
             with(binding) {
                 leftTitle.text = model.leftTitle
                 rightTitle.text = model.rightTitle
+                items[position]?.range = 1
                 radioGroup.setOnCheckedChangeListener { _, _ ->
                     val range = when (radioGroup.checkedRadioButtonId % 9){
                         1->9

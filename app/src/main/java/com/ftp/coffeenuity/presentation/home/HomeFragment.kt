@@ -8,16 +8,12 @@ import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
 import com.ftp.coffeenuity.R
 import com.ftp.coffeenuity.data.pref.ProfilePrefs
-import com.ftp.coffeenuity.data.source.remote.network.request.PetaniRequest
-import com.ftp.coffeenuity.data.utils.Resource
 import com.ftp.coffeenuity.databinding.FragmentHomeBinding
-import com.ftp.coffeenuity.presentation.auth.FuzzyViewModel
-import org.koin.android.viewmodel.ext.android.viewModel
+import com.ftp.coffeenuity.utils.Constants
 
 class HomeFragment : Fragment() {
     private var _binding: FragmentHomeBinding? = null
     private val binding get() = _binding!!
-    private val fuzzyViewModel: FuzzyViewModel by viewModel()
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -34,14 +30,33 @@ class HomeFragment : Fragment() {
     }
 
     private fun initView() {
-        with(binding){
-            tvWelcome.text = "Hi, " + ProfilePrefs.fullname
+        with(binding) {
+            val welcomeText = "Hi, " + ProfilePrefs.fullname
+            tvWelcome.text = welcomeText
         }
     }
 
     private fun initClick() {
-        with(binding){
-            btnIsiKuisioner.setOnClickListener { findNavController().navigate(R.id.action_homeFragment_to_firstQuestionerFragmentPetani) }
+        with(binding) {
+            btnIsiKuisioner.setOnClickListener {
+                moveToFirstQuestioner()
+            }
+        }
+    }
+
+    private fun moveToFirstQuestioner() {
+        when (ProfilePrefs.role) {
+            Constants.PETANI -> {
+                findNavController().navigate(R.id.action_homeFragment_to_firstQuestionerFragmentPetani)
+            }
+            Constants.TENGKULAK -> {
+                findNavController().navigate(R.id.action_homeFragment_to_firstQuestionerFragmentTengkulak)
+            }
+            Constants.ROASTERY -> {
+                findNavController().navigate(R.id.action_homeFragment_to_firstQuestionerFragmentRoastery)
+            }
+            else -> {
+            }
         }
     }
 }

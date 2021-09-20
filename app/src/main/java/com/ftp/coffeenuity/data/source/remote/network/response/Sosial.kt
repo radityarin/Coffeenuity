@@ -8,7 +8,7 @@ import kotlinx.parcelize.Parcelize
 @Parcelize
 data class Sosial(
     @SerializedName("indeks_berkelanjutan")
-    var indeksBerkelanjutan: Double,
+    var indeksBerkelanjutan: Double = 0.0,
     @SerializedName("kategori")
-    var kategori: String
+    var kategori: String = ""
 ) : Parcelable

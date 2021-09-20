@@ -16,6 +16,14 @@
         android:text="Hi, Admin"
         android:textAlignment="center" />
 
+    <TextView
+        style="@style/subtitle2"
+        android:layout_width="match_parent"
+        android:layout_marginHorizontal="@dimen/layout_margin2"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/layout_margin"
+        android:text="Petani" />
+
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/rvHistoryPetani"
         android:layout_width="match_parent"
@@ -25,6 +33,14 @@
         tools:itemCount="2"
         tools:listitem="@layout/item_questioner_history" />
 
+    <TextView
+        style="@style/subtitle2"
+        android:layout_width="match_parent"
+        android:layout_marginHorizontal="@dimen/layout_margin2"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/layout_margin"
+        android:text="Roastery" />
+
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/rvHistoryRoastery"
         android:layout_width="match_parent"
@@ -33,6 +49,15 @@
         app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
         tools:itemCount="2"
         tools:listitem="@layout/item_questioner_history" />
+
+
+    <TextView
+        style="@style/subtitle2"
+        android:layout_width="match_parent"
+        android:layout_marginHorizontal="@dimen/layout_margin2"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/layout_margin"
+        android:text="Tengkulak" />
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/rvHistoryTengkulak"

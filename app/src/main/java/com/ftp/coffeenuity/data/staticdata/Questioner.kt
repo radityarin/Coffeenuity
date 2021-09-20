@@ -9,6 +9,7 @@ object Questioner {
         QuestionerRange("Ekonomi","Lingkungan",0),
         QuestionerRange("Sosial","Lingkungan",0),
     )
+
     val listEkonomiPetani = listOf<QuestionerRange>(
         QuestionerRange("Keuntungan","Kualitas Produk",0),
         QuestionerRange("Keuntungan","Ketersediaan Produk",0),
@@ -147,5 +148,86 @@ object Questioner {
         QuestionerRange("Pengolahan Limbah","Upaya Konservasi",0),
 
         QuestionerRange("Pemanfaatan Limbah","Upaya Konservasi",0),
+    )
+
+    val listEkonomiKeberlanjutanPetani = listOf<QuestionerRange>(
+        QuestionerRange("Bagaimana tingkat keuntungan ditinjau dari sisi nilai keberlanjutan?","",0),
+        QuestionerRange("Bagaimana kualitas produk ditinjau dari sisi nilai keberlanjutan?","",0),
+        QuestionerRange("Bagaimana ketersediaan produk ditinjau dari sisi nilai keberlanjutan?","",0),
+        QuestionerRange("Bagaimana fleksibilitas/waktu siklus budidaya ditinjau dari sisi nilai keberlanjutan?","",0),
+        QuestionerRange("Bagaimana pelayanan pelanggan ditinjau dari sisi nilai keberlanjutan?","",0),
+        QuestionerRange("Bagaimana efisiensi biaya ditinjau dari sisi nilai keberlanjutan?","",0),
+    )
+
+    val listSosialKeberlanjutanPetani = listOf<QuestionerRange>(
+        QuestionerRange("Bagaimana kepuasan pelanggan ditinjau dari sisi nilai keberlanjutan?","",0),
+        QuestionerRange("Bagaimana kenyamanan bekerja ditinjau dari sisi nilai keberlanjutan?","",0),
+        QuestionerRange("Bagaimana keikutsertaan dalam kemitraan ditinjau dari sisi nilai keberlanjutan?","",0),
+        QuestionerRange("Bagaimana keberlangsungan taraf hidup ditinjau dari sisi nilai keberlanjutan?","",0),
+        QuestionerRange("Bagaimana serapan tenaga ditinjau dari sisi nilai keberlanjutan?","",0),
+        QuestionerRange("Bagaimana terpeliharanya budidaya produktif masyarakat ditinjau dari sisi nilai keberlanjutan?","",0),
+        QuestionerRange("Bagaimana pengurangan konflik antar petani ditinjau dari sisi nilai keberlanjutan?","",0),
+        QuestionerRange("Bagaimana keamanan pangan ditinjau dari sisi nilai keberlanjutan?","",0),
+    )
+
+    val listLingkunganKeberlanjutanPetani = listOf<QuestionerRange>(
+        QuestionerRange("Bagaimana efisiensi penggunaan pupuk ditinjau dari sisi nilai keberlanjutan?","",0),
+        QuestionerRange("Bagaimana pengolahan limbah ditinjau dari sisi nilai keberlanjutan?","",0),
+        QuestionerRange("Bagaimana pemanfaatan limbah ditinjau dari sisi nilai keberlanjutan?","",0),
+        QuestionerRange("Bagaimana upaya konservasi ditinjau dari sisi nilai keberlanjutan?","",0),
+    )
+
+    val listEkonomiKeberlanjutan = listOf<QuestionerRange>(
+        QuestionerRange("Bagaimana tingkat keuntungan ditinjau dari sisi nilai keberlanjutan?","",0),
+        QuestionerRange("Bagaimana kualitas produk ditinjau dari sisi nilai keberlanjutan?","",0),
+        QuestionerRange("Bagaimana ketersediaan produk ditinjau dari sisi nilai keberlanjutan?","",0),
+        QuestionerRange("Bagaimana fleksibilitas/waktu siklus produksi ditinjau dari sisi nilai keberlanjutan?","",0),
+        QuestionerRange("Bagaimana pelayanan pelanggan ditinjau dari sisi nilai keberlanjutan?","",0),
+        QuestionerRange("Bagaimana efisiensi biaya ditinjau dari sisi nilai keberlanjutan?","",0),
+    )
+
+    val listSosialKeberlanjutan = listOf<QuestionerRange>(
+        QuestionerRange("Bagaimana kepuasan pelanggan ditinjau dari sisi nilai keberlanjutan?","",0),
+        QuestionerRange("Bagaimana kenyamanan bekerja ditinjau dari sisi nilai keberlanjutan?","",0),
+        QuestionerRange("Bagaimana keikutsertaan dalam kemitraan ditinjau dari sisi nilai keberlanjutan?","",0),
+        QuestionerRange("Bagaimana keberlangsungan taraf hidup ditinjau dari sisi nilai keberlanjutan?","",0),
+        QuestionerRange("Bagaimana serapan tenaga ditinjau dari sisi nilai keberlanjutan?","",0),
+        QuestionerRange("Bagaimana terpeliharanya budidaya produktif masyarakat ditinjau dari sisi nilai keberlanjutan?","",0),
+        QuestionerRange("Bagaimana pengurangan konflik antar petani ditinjau dari sisi nilai keberlanjutan?","",0),
+        QuestionerRange("Bagaimana keamanan pangan ditinjau dari sisi nilai keberlanjutan?","",0),
+    )
+
+    val listLingkunganKeberlanjutan = listOf<QuestionerRange>(
+        QuestionerRange("Bagaimana efisiensi penggunaan energi ditinjau dari sisi nilai keberlanjutan?","",0),
+        QuestionerRange("Bagaimana pengolahan limbah ditinjau dari sisi nilai keberlanjutan?","",0),
+        QuestionerRange("Bagaimana pemanfaatan limbah ditinjau dari sisi nilai keberlanjutan?","",0),
+        QuestionerRange("Bagaimana upaya konservasi ditinjau dari sisi nilai keberlanjutan?","",0),
+    )
+
+    val listEkonomiKeberlanjutanRoastery = listOf<QuestionerRange>(
+        QuestionerRange("Bagaimana tingkat keuntungan ditinjau dari sisi nilai keberlanjutan?","",0),
+        QuestionerRange("Bagaimana kualitas produk ditinjau dari sisi nilai keberlanjutan?","",0),
+        QuestionerRange("Bagaimana ketersediaan produk ditinjau dari sisi nilai keberlanjutan?","",0),
+        QuestionerRange("Bagaimana fleksibilitas/waktu siklus produksi ditinjau dari sisi nilai keberlanjutan?","",0),
+        QuestionerRange("Bagaimana pelayanan pelanggan ditinjau dari sisi nilai keberlanjutan?","",0),
+        QuestionerRange("Bagaimana efisiensi biaya ditinjau dari sisi nilai keberlanjutan?","",0),
+    )
+
+    val listSosialKeberlanjutanRoastery = listOf<QuestionerRange>(
+        QuestionerRange("Bagaimana kepuasan pelanggan ditinjau dari sisi nilai keberlanjutan?","",0),
+        QuestionerRange("Bagaimana kenyamanan bekerja ditinjau dari sisi nilai keberlanjutan?","",0),
+        QuestionerRange("Bagaimana keikutsertaan dalam kemitraan ditinjau dari sisi nilai keberlanjutan?","",0),
+        QuestionerRange("Bagaimana keberlangsungan taraf hidup ditinjau dari sisi nilai keberlanjutan?","",0),
+        QuestionerRange("Bagaimana serapan tenaga ditinjau dari sisi nilai keberlanjutan?","",0),
+        QuestionerRange("Bagaimana terpeliharanya budidaya produktif masyarakat ditinjau dari sisi nilai keberlanjutan?","",0),
+        QuestionerRange("Bagaimana pengurangan konflik antar petani ditinjau dari sisi nilai keberlanjutan?","",0),
+        QuestionerRange("Bagaimana keamanan pangan ditinjau dari sisi nilai keberlanjutan?","",0),
+    )
+
+    val listLingkunganKeberlanjutanRoastery = listOf<QuestionerRange>(
+        QuestionerRange("Bagaimana efisiensi penggunaan pupuk ditinjau dari sisi nilai keberlanjutan?","",0),
+        QuestionerRange("Bagaimana pengolahan limbah ditinjau dari sisi nilai keberlanjutan?","",0),
+        QuestionerRange("Bagaimana pemanfaatan limbah ditinjau dari sisi nilai keberlanjutan?","",0),
+        QuestionerRange("Bagaimana upaya konservasi ditinjau dari sisi nilai keberlanjutan?","",0),
     )
 }

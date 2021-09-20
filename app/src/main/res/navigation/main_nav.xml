@@ -13,6 +13,12 @@
         <action
             android:id="@+id/action_homeFragment_to_firstQuestionerFragmentPetani"
             app:destination="@id/firstQuestionerFragmentPetani" />
+        <action
+            android:id="@+id/action_homeFragment_to_firstQuestionerFragmentRoastery"
+            app:destination="@id/firstQuestionerFragmentRoastery" />
+        <action
+            android:id="@+id/action_homeFragment_to_firstQuestionerFragmentTengkulak"
+            app:destination="@id/firstQuestionerFragmentTengkulak" />
     </fragment>
     <fragment
         android:id="@+id/historyFragment"
@@ -21,16 +27,16 @@
         tools:layout="@layout/fragment_history" />
     <fragment
         android:id="@+id/firstQuestionerFragmentPetani"
-        android:name="com.ftp.coffeenuity.presentation.home.questioner.petani.FirstQuestionerFragmentPetani"
+        android:name="com.ftp.coffeenuity.presentation.home.questioner.first.FirstQuestionerFragmentPetani"
         android:label="fragment_first_questioner_petani"
         tools:layout="@layout/fragment_first_questioner_petani" >
         <action
-            android:id="@+id/action_firstQuestionerFragment_to_secondQuestionerFragmentPetani"
-            app:destination="@id/secondQuestionerFragmentPetani" />
+            android:id="@+id/action_firstQuestionerFragmentPetani_to_secondQuestionerFragment"
+            app:destination="@id/secondQuestionerFragment" />
     </fragment>
     <fragment
         android:id="@+id/resultFragment"
-        android:name="com.ftp.coffeenuity.presentation.home.questioner.ResultFragment"
+        android:name="com.ftp.coffeenuity.presentation.home.questioner.result.ResultFragment"
         android:label="fragment_result"
         tools:layout="@layout/fragment_result" >
         <action
@@ -38,7 +44,7 @@
             app:destination="@id/strategiFragment" />
         <argument
             android:name="response"
-            app:argType="com.ftp.coffeenuity.data.source.remote.network.response.PetaniResponse" />
+            app:argType="com.ftp.coffeenuity.data.source.remote.network.response.AHPResponse" />
     </fragment>
     <fragment
         android:id="@+id/adminHomeFragment"
@@ -46,24 +52,78 @@
         android:label="fragment_admin_home"
         tools:layout="@layout/fragment_admin_home" />
     <fragment
-        android:id="@+id/secondQuestionerFragmentPetani"
-        android:name="com.ftp.coffeenuity.presentation.home.questioner.petani.SecondQuestionerFragmentPetani"
+        android:id="@+id/secondQuestionerFragment"
+        android:name="com.ftp.coffeenuity.presentation.home.questioner.second.SecondQuestionerFragment"
         android:label="fragment_second_questioner"
-        tools:layout="@layout/fragment_second_questioner_petani" >
+        tools:layout="@layout/fragment_second_questioner" >
         <action
-            android:id="@+id/action_secondQuestionerFragment_to_resultFragment"
-            app:destination="@id/resultFragment" />
+            android:id="@+id/action_secondQuestionerFragment_to_thirdQuestionerFragment"
+            app:destination="@id/thirdQuestionerFragment" />
         <argument
-            android:name="firstQuestioner"
-            app:argType="com.ftp.coffeenuity.domain.model.petani.PetaniFirstQuestioner" />
+            android:name="type"
+            app:argType="string" />
+        <argument
+            android:name="petani"
+            app:argType="com.ftp.coffeenuity.domain.model.petani.PetaniFirstQuestioner"
+            app:nullable="true" />
+        <argument
+            android:name="tengkulak"
+            app:argType="com.ftp.coffeenuity.domain.model.tengkulak.TengkulakFirstQuestioner"
+            app:nullable="true" />
+        <argument
+            android:name="roastery"
+            app:argType="com.ftp.coffeenuity.domain.model.roastery.RoasteryFirstQuestioner"
+            app:nullable="true" />
     </fragment>
     <fragment
         android:id="@+id/strategiFragment"
-        android:name="com.ftp.coffeenuity.presentation.home.questioner.StrategiFragment"
+        android:name="com.ftp.coffeenuity.presentation.home.questioner.strategi.StrategiFragment"
         android:label="fragment_strategi"
         tools:layout="@layout/fragment_strategi" />
     <fragment
         android:id="@+id/profileFragment"
         android:name="com.ftp.coffeenuity.presentation.home.ProfileFragment"
         android:label="ProfileFragment" />
+    <fragment
+        android:id="@+id/firstQuestionerFragmentRoastery"
+        android:name="com.ftp.coffeenuity.presentation.home.questioner.first.FirstQuestionerFragmentRoastery"
+        android:label="FirstQuestionerFragmentRoastery" >
+        <action
+            android:id="@+id/action_firstQuestionerFragmentRoastery_to_secondQuestionerFragment"
+            app:destination="@id/secondQuestionerFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/firstQuestionerFragmentTengkulak"
+        android:name="com.ftp.coffeenuity.presentation.home.questioner.first.FirstQuestionerFragmentTengkulak"
+        android:label="FirstQuestionerFragmentTengkulak" >
+        <action
+            android:id="@+id/action_firstQuestionerFragmentTengkulak_to_secondQuestionerFragment"
+            app:destination="@id/secondQuestionerFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/thirdQuestionerFragment"
+        android:name="com.ftp.coffeenuity.presentation.home.questioner.third.ThirdQuestionerFragment"
+        android:label="ThirdQuestionerFragment" >
+        <action
+            android:id="@+id/action_secondQuestionerFragment_to_resultFragment"
+            app:destination="@id/resultFragment" />
+        <argument
+            android:name="type"
+            app:argType="string" />
+        <argument
+            android:name="petani"
+            app:argType="com.ftp.coffeenuity.domain.model.petani.PetaniFirstQuestioner"
+            app:nullable="true" />
+        <argument
+            android:name="tengkulak"
+            app:argType="com.ftp.coffeenuity.domain.model.tengkulak.TengkulakFirstQuestioner"
+            app:nullable="true" />
+        <argument
+            android:name="roastery"
+            app:argType="com.ftp.coffeenuity.domain.model.roastery.RoasteryFirstQuestioner"
+            app:nullable="true" />
+        <argument
+            android:name="ahpRequest"
+            app:argType="com.ftp.coffeenuity.data.source.remote.network.request.AHPRequest" />
+    </fragment>
 </navigation>

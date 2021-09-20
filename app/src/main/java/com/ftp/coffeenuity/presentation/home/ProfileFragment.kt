@@ -2,20 +2,15 @@ package com.ftp.coffeenuity.presentation.home
 
 import android.content.Intent
 import android.os.Bundle
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.navigation.fragment.findNavController
-import com.ftp.coffeenuity.R
+import androidx.fragment.app.Fragment
 import com.ftp.coffeenuity.data.pref.ProfilePrefs
 import com.ftp.coffeenuity.data.utils.Resource
-import com.ftp.coffeenuity.databinding.FragmentHomeBinding
 import com.ftp.coffeenuity.databinding.FragmentProfileBinding
 import com.ftp.coffeenuity.presentation.auth.AuthViewModel
-import com.ftp.coffeenuity.presentation.auth.FuzzyViewModel
 import com.ftp.coffeenuity.presentation.auth.onboarding.OnBoardingActivity
-import com.ftp.coffeenuity.presentation.home.questioner.petani.SecondQuestionerFragmentPetaniDirections
 import com.google.firebase.auth.FirebaseAuth
 import org.koin.android.viewmodel.ext.android.viewModel
 
@@ -40,14 +35,14 @@ class ProfileFragment : Fragment() {
     }
 
     private fun observe() {
-        authViewModel.getUserWithIDUser(ProfilePrefs.idFirebase).observe(viewLifecycleOwner){
+        authViewModel.getUserWithIDUser(ProfilePrefs.idFirebase).observe(viewLifecycleOwner) {
             when (it) {
                 is Resource.Loading -> {
                     with(binding) {
                         tvName.text = ProfilePrefs.fullname
                         tvPekerjaan.text = ProfilePrefs.role
                         tvAlamat.text = ProfilePrefs.alamat
-                        tvUsia.text = ProfilePrefs.usia+" Tahun"
+                        tvUsia.text = ProfilePrefs.usia + " Tahun"
                         tvJumlahTenagaKerja.text = ProfilePrefs.jumlahTenagaKerja
                         tvSifatUsaha.text = ProfilePrefs.sifatUsaha
                         tvJenisKelamin.text = ProfilePrefs.jenisKelamin
@@ -55,12 +50,12 @@ class ProfileFragment : Fragment() {
                 }
                 is Resource.Success -> {
                     val user = it.data
-                    if (user!=null) {
+                    if (user != null) {
                         with(binding) {
                             tvName.text = user.nama
                             tvPekerjaan.text = user.role
                             tvAlamat.text = user.address
-                            tvUsia.text = user.usia+" Tahun"
+                            tvUsia.text = user.usia + " Tahun"
                             tvJumlahTenagaKerja.text = user.jumlahTenagaKerja
                             tvSifatUsaha.text = user.sifatUsaha
                             tvJenisKelamin.text = user.jenisKelamin
@@ -87,7 +82,8 @@ class ProfileFragment : Fragment() {
         binding.btnLogOut.setOnClickListener {
             FirebaseAuth.getInstance().signOut()
             startActivity(
-                Intent(activity,OnBoardingActivity::class.java))
+                Intent(activity, OnBoardingActivity::class.java)
+            )
             ProfilePrefs.idFirebase = ""
             activity?.finishAffinity()
         }

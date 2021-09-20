@@ -1,0 +1,129 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <TextView
+            android:id="@+id/leftTitle"
+            style="@style/caption2_10"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="Keuntungan" />
+
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/layout_margin3"
+        android:gravity="center"
+        android:orientation="horizontal">
+
+        <TextView
+            style="@style/caption2_10"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="1"
+            android:textAlignment="center"
+            android:textColor="@color/black" />
+
+        <TextView
+            style="@style/caption2_10"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="2"
+            android:textAlignment="center"
+            android:textColor="@color/black" />
+
+        <TextView
+            style="@style/caption2_10"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="3"
+            android:textAlignment="center"
+            android:textColor="@color/black" />
+
+        <TextView
+            style="@style/caption2_10"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="4"
+            android:textAlignment="center"
+            android:textColor="@color/black" />
+
+        <TextView
+            style="@style/caption2_10"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="5"
+            android:textAlignment="center" />
+    </LinearLayout>
+
+    <RadioGroup
+        android:id="@+id/radioGroup"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:checkedButton="@id/defaultButton"
+        android:gravity="center"
+        android:orientation="horizontal">
+
+        <RadioButton
+            style="@style/caption2_10"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/_20sdp"
+            android:layout_weight="1"
+            android:buttonTint="@color/black" />
+
+        <RadioButton
+            style="@style/caption2_10"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/_20sdp"
+            android:layout_weight="1"
+            android:buttonTint="@color/black"
+            android:textAlignment="textEnd" />
+
+        <RadioButton
+            android:id="@+id/defaultButton"
+            style="@style/caption2_10"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/_20sdp"
+            android:layout_weight="1"
+            android:buttonTint="@color/black"
+            android:textAlignment="textEnd" />
+
+        <RadioButton
+            style="@style/caption2_10"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/_20sdp"
+            android:layout_weight="1"
+            android:buttonTint="@color/black"
+            android:textAlignment="textEnd" />
+
+        <RadioButton
+            style="@style/caption2_10"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/_20sdp"
+            android:layout_weight="1"
+            android:buttonTint="@color/black"
+            android:textAlignment="textEnd" />
+
+    </RadioGroup>
+</LinearLayout>

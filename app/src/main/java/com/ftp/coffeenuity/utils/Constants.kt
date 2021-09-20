@@ -2,7 +2,9 @@ package com.ftp.coffeenuity.utils
 
 object Constants {
     const val COLLECTION_USER = "users"
-    const val COLLECTION_POST = "posts"
+    const val COLLECTION_QUESTIONER_PETANI = "questioner_petani"
+    const val COLLECTION_QUESTIONER_TENGKULAK = "questioner_tengkulak"
+    const val COLLECTION_QUESTIONER_ROASTERY = "questioner_roastery"
     const val COLLECTION_STORY = "story"
     const val STORAGE_IMAGE_POST = "images_post"
     const val STORAGE_IMAGE_USER = "images_user"

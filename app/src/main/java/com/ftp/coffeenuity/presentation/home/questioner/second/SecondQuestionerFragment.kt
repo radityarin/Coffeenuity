@@ -1,4 +1,4 @@
-package com.ftp.coffeenuity.presentation.home.questioner.petani
+package com.ftp.coffeenuity.presentation.home.questioner.second
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -6,9 +6,10 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
-import com.ftp.coffeenuity.adapter.QuestionRangeAdapter
+import androidx.navigation.fragment.navArgs
+import com.ftp.coffeenuity.adapter.QuestionerRangeAdapter
 import com.ftp.coffeenuity.data.pref.ProfilePrefs
-import com.ftp.coffeenuity.data.source.remote.network.request.PetaniRequest
+import com.ftp.coffeenuity.data.source.remote.network.request.AHPRequest
 import com.ftp.coffeenuity.data.staticdata.Questioner.listEkonomi
 import com.ftp.coffeenuity.data.staticdata.Questioner.listEkonomiPetani
 import com.ftp.coffeenuity.data.staticdata.Questioner.listLingkungan
@@ -16,28 +17,25 @@ import com.ftp.coffeenuity.data.staticdata.Questioner.listLingkunganPetani
 import com.ftp.coffeenuity.data.staticdata.Questioner.listSosial
 import com.ftp.coffeenuity.data.staticdata.Questioner.listSosialPetani
 import com.ftp.coffeenuity.data.staticdata.Questioner.listSubKriteria
-import com.ftp.coffeenuity.data.utils.Resource
-import com.ftp.coffeenuity.databinding.FragmentSecondQuestionerPetaniBinding
-import com.ftp.coffeenuity.presentation.auth.FuzzyViewModel
+import com.ftp.coffeenuity.databinding.FragmentThirdQuestionerBinding
 import com.ftp.coffeenuity.utils.Constants
 import com.ftp.coffeenuity.utils.UtilsView.snackErrorText
-import org.koin.android.viewmodel.ext.android.viewModel
 
-class SecondQuestionerFragmentPetani : Fragment() {
+class SecondQuestionerFragment : Fragment() {
 
-    private var _binding: FragmentSecondQuestionerPetaniBinding? = null
+    private var _binding: FragmentThirdQuestionerBinding? = null
     private val binding get() = _binding!!
-    private lateinit var subKriteriaAdapter: QuestionRangeAdapter
-    private lateinit var ekonomiAdapter: QuestionRangeAdapter
-    private lateinit var sosialAdapter: QuestionRangeAdapter
-    private lateinit var lingkunganAdapter: QuestionRangeAdapter
-    private val fuzzyViewModel: FuzzyViewModel by viewModel()
+    private lateinit var subKriteriaAdapter: QuestionerRangeAdapter
+    private lateinit var ekonomiAdapter: QuestionerRangeAdapter
+    private lateinit var sosialAdapter: QuestionerRangeAdapter
+    private lateinit var lingkunganAdapter: QuestionerRangeAdapter
+    private val args: SecondQuestionerFragmentArgs by navArgs()
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
-        _binding = FragmentSecondQuestionerPetaniBinding.inflate(inflater, container, false)
+        _binding = FragmentThirdQuestionerBinding.inflate(inflater, container, false)
         return binding.root
     }
 
@@ -48,10 +46,10 @@ class SecondQuestionerFragmentPetani : Fragment() {
     }
 
     private fun setupAdapter() {
-        subKriteriaAdapter = QuestionRangeAdapter()
-        ekonomiAdapter = QuestionRangeAdapter()
-        sosialAdapter = QuestionRangeAdapter()
-        lingkunganAdapter = QuestionRangeAdapter()
+        subKriteriaAdapter = QuestionerRangeAdapter()
+        ekonomiAdapter = QuestionerRangeAdapter()
+        sosialAdapter = QuestionerRangeAdapter()
+        lingkunganAdapter = QuestionerRangeAdapter()
         subKriteriaAdapter.submitList(listSubKriteria)
         when (ProfilePrefs.role) {
             Constants.PETANI -> {
@@ -115,7 +113,7 @@ class SecondQuestionerFragmentPetani : Fragment() {
         val testPetaniSosial = convert(sosialData, rangeSosial)
         val testPetaniLingkungan = convert(lingkunganData, rangeLingkungan)
 
-        val petaniRequest = PetaniRequest(
+        val ahpRequest = AHPRequest(
             testPetaniSubKriteria = testPetaniSubKriteria,
             testPetaniEkonomi = testPetaniEkonomi,
             testPetaniSosial = testPetaniSosial,
@@ -124,25 +122,19 @@ class SecondQuestionerFragmentPetani : Fragment() {
             skalaKriteriaSosial = skalaKriteriaSosial,
             skalaKriteriaLingkungan = skalaKriteriaLingkungan
         )
+        navigateToResultFragment(ahpRequest)
+    }
 
-        fuzzyViewModel.getIndeksBerkelanjutanPetani(petaniRequest).observe(viewLifecycleOwner) {
-            when (it) {
-                is Resource.Loading -> {
-                    binding.btnNext.showLoading()
-                }
-                is Resource.Success -> {
-                    val action = it.data?.let { it1 ->
-                        SecondQuestionerFragmentPetaniDirections.actionSecondQuestionerFragmentToResultFragment(
-                            it1
-                        )
-                    }
-                    if (action != null) {
-                        findNavController().navigate(action)
-                    }
-                }
-                else -> println("Error")
-            }
-        }
+    private fun navigateToResultFragment(ahpRequest: AHPRequest) {
+        val action =
+            SecondQuestionerFragmentDirections.actionSecondQuestionerFragmentToThirdQuestionerFragment(
+                type = args.type,
+                roastery = args.roastery,
+                petani = args.petani,
+                tengkulak = args.tengkulak,
+                ahpRequest = ahpRequest
+            )
+        findNavController().navigate(action)
     }
 
     private fun convert(allData: List<Int?>, range: Int): List<List<Int>> {

@@ -162,7 +162,10 @@ class RegisterActivity : AppCompatActivity() {
                     binding.btnRegister.showLoading()
                 }
                 is Resource.Success -> {
-                    ProfilePrefs.idFirebase = data?.user?.uid.toString()
+                    ProfilePrefs.apply {
+                        idFirebase = data?.user?.uid.toString()
+                        role = user.role
+                    }
                     startActivity(Intent(this, MainActivity::class.java))
                     binding.btnRegister.hideLoading()
                 }

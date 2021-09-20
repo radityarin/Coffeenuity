@@ -1,12 +1,12 @@
 package com.ftp.coffeenuity.data.source.remote
 
-import com.ftp.coffeenuity.data.pref.ProfilePrefs
-import com.ftp.coffeenuity.data.source.remote.network.ApiResponse
 import com.ftp.coffeenuity.data.source.remote.network.ApiServiceFuzzyAHP
-import com.ftp.coffeenuity.data.source.remote.network.request.PetaniRequest
-import com.ftp.coffeenuity.data.source.remote.network.response.IndeksBerkelanjutan
-import com.ftp.coffeenuity.data.source.remote.network.response.PetaniResponse
+import com.ftp.coffeenuity.data.source.remote.network.request.AHPRequest
+import com.ftp.coffeenuity.data.source.remote.network.response.AHPResponse
 import com.ftp.coffeenuity.data.utils.Resource
+import com.ftp.coffeenuity.domain.model.QuestionerPetani
+import com.ftp.coffeenuity.domain.model.QuestionerRoastery
+import com.ftp.coffeenuity.domain.model.QuestionerTengkulak
 import com.ftp.coffeenuity.domain.model.User
 import com.ftp.coffeenuity.utils.Constants
 import com.google.firebase.auth.AuthResult
@@ -27,85 +27,108 @@ class RemoteDataSource(
 
     private val mUsersCollection =
         FirebaseFirestore.getInstance().collection(Constants.COLLECTION_USER)
+    private val mQuestionerPetaniCollection =
+        FirebaseFirestore.getInstance().collection(Constants.COLLECTION_QUESTIONER_PETANI)
+    private val mQuestionerRoasteryCollection =
+        FirebaseFirestore.getInstance().collection(Constants.COLLECTION_QUESTIONER_ROASTERY)
+    private val mQuestionerTengkulakCollection =
+        FirebaseFirestore.getInstance().collection(Constants.COLLECTION_QUESTIONER_TENGKULAK)
 
-//    fun getAllPosts() = flow<ApiResponse<List<PostResponse>>> {
-//        val snapshot = mPostsCollection.get().await()
-//        val posts = snapshot.toObjects(PostResponse::class.java)
-//        val newPost = mutableListOf<PostResponse>()
-//        for (post in posts) {
-//            var np = post
-//            var liked = false
-//            for (like in post.userLikes) {
-//                if (like.idUser == UserPref.idUser) {
-//                    liked = true
-//                }
-//            }
-//            np.isLiked = liked
-//            newPost.add(np)
-//        }
-//        emit(ApiResponse.Success(newPost))
-//    }.catch {
-//        emit(ApiResponse.Error(it.message.toString()))
-//    }.flowOn(Dispatchers.IO)
-//
-//    fun getStories() = flow<ApiResponse<List<StoryResponse>>> {
-//        val snapshot = mStoryCollection.get().await()
-//        val story = snapshot.toObjects(StoryResponse::class.java)
-//        emit(ApiResponse.Success(story))
-//    }.catch {
-//        emit(ApiResponse.Error(it.message.toString()))
-//    }.flowOn(Dispatchers.IO)
-//
-//    fun getStoriesWithSpecificUserID(idUser: String) = flow<ApiResponse<List<StoryResponse>>> {
-//        val snapshot =
-//            mStoryCollection.whereEqualTo(Constants.COLLECTION_GENERAL_ATTRIBUTE_ID_USER, idUser)
-//                .get().await()
-//        val story = snapshot.toObjects(StoryResponse::class.java)
-//        emit(ApiResponse.Success(story))
-//    }.catch {
-//        emit(ApiResponse.Error(it.message.toString()))
-//    }.flowOn(Dispatchers.IO)
-//
-//    fun addPost(post: Post) = flow<Resource<Boolean>> {
-//        emit(Resource.Loading())
-//        post.idPost = mPostsCollection.document().id
-//        mPostsCollection.document(post.idPost).set(post).await()
-//        emit(Resource.Success(true))
-//    }.catch {
-//        emit(Resource.Error(it.message.toString()))
-//    }.flowOn(Dispatchers.IO)
-//
-//    fun likePost(post: Post) = flow<Resource<DocumentReference>> {
-//        emit(Resource.Loading())
-//        val snapshot =
-//            mPostsCollection.document(post.idPost)
-//                .get().await()
-//        val postUpdated = snapshot.toObject(Post::class.java)
-//        val postRef = mPostsCollection.document(postUpdated?.idPost.toString())
-//        val userLikes = Likes(postRef.id, UserPref.idUser, UserPref.username)
-//        if (postUpdated?.userLikes?.contains(userLikes) == true) {
-//            postRef.update(COLLECTION_ATTRIBUTE_POST_USER_LIKES, FieldValue.arrayRemove(userLikes))
-//        } else {
-//            postRef.update(COLLECTION_ATTRIBUTE_POST_USER_LIKES, FieldValue.arrayUnion(userLikes))
-//        }
-//        emit(Resource.Success(postRef))
-//    }.catch {
-//        emit(Resource.Error(it.message.toString()))
-//    }.flowOn(Dispatchers.IO)
-//
-//    fun addStory(story: Story) = flow<Resource<Boolean>> {
-//        emit(Resource.Loading())
-//        story.idStory = mStoryCollection.document().id
-//        mStoryCollection.document(story.idStory).set(story).await()
-//        emit(Resource.Success(true))
-//    }.catch {
-//        emit(Resource.Error(it.message.toString()))
-//    }.flowOn(Dispatchers.IO)
+    fun getAllQuestionerPetani() = flow<Resource<List<QuestionerPetani>>> {
+        val snapshot = mQuestionerPetaniCollection.get().await()
+        val questioners = snapshot.toObjects(QuestionerPetani::class.java)
+        emit(Resource.Success(questioners))
+    }.catch {
+        emit(Resource.Error(it.message.toString()))
+    }.flowOn(Dispatchers.IO)
 
-    suspend fun getIndeksKeberlanjutanPetani(petaniRequest: PetaniRequest): Flow<PetaniResponse> {
+    fun getAllQuestionerTengkulak() = flow<Resource<List<QuestionerTengkulak>>> {
+        val snapshot = mQuestionerTengkulakCollection.get().await()
+        val questioners = snapshot.toObjects(QuestionerTengkulak::class.java)
+        emit(Resource.Success(questioners))
+    }.catch {
+        emit(Resource.Error(it.message.toString()))
+    }.flowOn(Dispatchers.IO)
+
+    fun getAllQuestionerRoastery() = flow<Resource<List<QuestionerRoastery>>> {
+        val snapshot = mQuestionerRoasteryCollection.get().await()
+        val questioners = snapshot.toObjects(QuestionerRoastery::class.java)
+        emit(Resource.Success(questioners))
+    }.catch {
+        emit(Resource.Error(it.message.toString()))
+    }.flowOn(Dispatchers.IO)
+
+    fun getListQuestionerPetaniWithSpecificID(idUser: String) =
+        flow<Resource<List<QuestionerPetani>>> {
+            val snapshot =
+                mQuestionerPetaniCollection.whereEqualTo(
+                    Constants.COLLECTION_GENERAL_ATTRIBUTE_ID_USER,
+                    idUser
+                )
+                    .get().await()
+            val story = snapshot.toObjects(QuestionerPetani::class.java)
+            emit(Resource.Success(story))
+        }.catch {
+            emit(Resource.Error(it.message.toString()))
+        }.flowOn(Dispatchers.IO)
+
+    fun getListQuestionerTengkulakWithSpecificID(idUser: String) =
+        flow<Resource<List<QuestionerTengkulak>>> {
+            val snapshot =
+                mQuestionerTengkulakCollection.whereEqualTo(
+                    Constants.COLLECTION_GENERAL_ATTRIBUTE_ID_USER,
+                    idUser
+                )
+                    .get().await()
+            val story = snapshot.toObjects(QuestionerTengkulak::class.java)
+            emit(Resource.Success(story))
+        }.catch {
+            emit(Resource.Error(it.message.toString()))
+        }.flowOn(Dispatchers.IO)
+
+    fun getListQuestionerRoasteryWithSpecificID(idUser: String) =
+        flow<Resource<List<QuestionerRoastery>>> {
+            val snapshot =
+                mQuestionerRoasteryCollection.whereEqualTo(
+                    Constants.COLLECTION_GENERAL_ATTRIBUTE_ID_USER,
+                    idUser
+                )
+                    .get().await()
+            val story = snapshot.toObjects(QuestionerRoastery::class.java)
+            emit(Resource.Success(story))
+        }.catch {
+            emit(Resource.Error(it.message.toString()))
+        }.flowOn(Dispatchers.IO)
+
+    fun addQuestionerPetani(questionerPetani: QuestionerPetani) = flow<Resource<Boolean>> {
+        emit(Resource.Loading())
+        mQuestionerPetaniCollection.document(questionerPetani.idQuestioner).set(questionerPetani).await()
+        emit(Resource.Success(true))
+    }.catch {
+        emit(Resource.Error(it.message.toString()))
+    }.flowOn(Dispatchers.IO)
+
+    fun addQuestionerTengkulak(questionerTengkulak: QuestionerTengkulak) = flow<Resource<Boolean>> {
+        emit(Resource.Loading())
+        mQuestionerTengkulakCollection.document(questionerTengkulak.idQuestioner).set(questionerTengkulak).await()
+        emit(Resource.Success(true))
+    }.catch {
+        emit(Resource.Error(it.message.toString()))
+    }.flowOn(Dispatchers.IO)
+
+    fun addQuestionerRoastery(questionerRoastery: QuestionerRoastery) = flow<Resource<Boolean>> {
+        emit(Resource.Loading())
+        mQuestionerRoasteryCollection.document(questionerRoastery.idQuestioner).set(questionerRoastery).await()
+        emit(Resource.Success(true))
+    }.catch {
+        emit(Resource.Error(it.message.toString()))
+    }.flowOn(Dispatchers.IO)
+
+    suspend fun getIndeksKeberlanjutanPetani(AHPRequest: AHPRequest): Flow<AHPResponse> {
         return flow {
             try {
-                val response = apiServiceFuzzyAHP.getIndeksKeberlanjutanPetani(petaniRequest = petaniRequest)
+                val response =
+                    apiServiceFuzzyAHP.getIndeksKeberlanjutanPetani(AHPRequest = AHPRequest)
                 if (response.message.isNotBlank()) {
                     emit(response)
                 }
@@ -114,7 +137,6 @@ class RemoteDataSource(
             }
         }.flowOn(Dispatchers.IO)
     }
-
 
     fun loginUser(email: String, password: String) = flow<Resource<AuthResult>> {
         emit(Resource.Loading())
@@ -151,54 +173,5 @@ class RemoteDataSource(
     }.catch {
         emit(Resource.Error(it.message.toString()))
     }.flowOn(Dispatchers.IO)
-//
-//    fun getAllUsers() = flow<ApiResponse<List<UserResponse>>> {
-//        val snapshot =
-//            mUsersCollection.whereNotEqualTo(
-//                Constants.COLLECTION_GENERAL_ATTRIBUTE_ID_USER,
-//                UserPref.idUser
-//            )
-//                .get().await()
-//        val posts = snapshot.toObjects(UserResponse::class.java)
-//        emit(ApiResponse.Success(posts))
-//    }.catch {
-//        emit(ApiResponse.Error(it.message.toString()))
-//    }.flowOn(Dispatchers.IO)
-//
-//    fun setPhotoProfile(imageUrl: String) = flow<Resource<DocumentReference>> {
-//        emit(Resource.Loading())
-//        val userRef =
-//            mUsersCollection.document(UserPref.idUser)
-//        userRef.update(
-//            mapOf(
-//                "photoProfileUrl" to imageUrl
-//            )
-//        )
-//        emit(Resource.Success(userRef))
-//    }.catch {
-//        emit(Resource.Error(it.message.toString()))
-//    }.flowOn(Dispatchers.IO)
-//
-//    fun uploadImage(imageUrl: Uri, firestorePath: String) = flow<Resource<String>> {
-//        emit(Resource.Loading())
-//        var urlPostImage = ""
-//        val filepath: StorageReference = imageStorage.child(firestorePath)
-//            .child(UUID.randomUUID().toString() + ".jpg")
-//        filepath.putFile(Objects.requireNonNull(imageUrl)!!)
-//            .continueWithTask { task ->
-//                if (!task.isSuccessful) {
-//                    throw Objects.requireNonNull(task.exception)!!
-//                }
-//                filepath.downloadUrl
-//            }.addOnCompleteListener { task ->
-//                if (task.isSuccessful) {
-//                    val downloadUri = task.result
-//                    urlPostImage = downloadUri.toString()
-//                }
-//            }.await()
-//        emit(Resource.Success(urlPostImage))
-//    }.catch {
-//        emit(Resource.Error(it.message.toString()))
-//    }.flowOn(Dispatchers.IO)
 
 }

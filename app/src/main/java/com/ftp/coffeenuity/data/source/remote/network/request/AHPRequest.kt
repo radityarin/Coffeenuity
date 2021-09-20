@@ -1,9 +1,12 @@
 package com.ftp.coffeenuity.data.source.remote.network.request
 
 
+import android.os.Parcelable
 import com.google.gson.annotations.SerializedName
+import kotlinx.parcelize.Parcelize
 
-data class PetaniRequest(
+@Parcelize
+data class AHPRequest(
     @SerializedName("skala_kriteria_ekonomi")
     var skalaKriteriaEkonomi: List<Int>,
     @SerializedName("skala_kriteria_lingkungan")
@@ -18,4 +21,4 @@ data class PetaniRequest(
     var testPetaniSosial: List<List<Int>>,
     @SerializedName("test_petani_sub_kriteria")
     var testPetaniSubKriteria: List<List<Int>>
-)
+) : Parcelable
