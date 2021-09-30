@@ -17,13 +17,14 @@ import com.ftp.coffeenuity.data.staticdata.Questioner.listLingkunganPetani
 import com.ftp.coffeenuity.data.staticdata.Questioner.listSosial
 import com.ftp.coffeenuity.data.staticdata.Questioner.listSosialPetani
 import com.ftp.coffeenuity.data.staticdata.Questioner.listSubKriteria
+import com.ftp.coffeenuity.databinding.FragmentSecondQuestionerBinding
 import com.ftp.coffeenuity.databinding.FragmentThirdQuestionerBinding
 import com.ftp.coffeenuity.utils.Constants
 import com.ftp.coffeenuity.utils.UtilsView.snackErrorText
 
 class SecondQuestionerFragment : Fragment() {
 
-    private var _binding: FragmentThirdQuestionerBinding? = null
+    private var _binding: FragmentSecondQuestionerBinding? = null
     private val binding get() = _binding!!
     private lateinit var subKriteriaAdapter: QuestionerRangeAdapter
     private lateinit var ekonomiAdapter: QuestionerRangeAdapter
@@ -35,7 +36,7 @@ class SecondQuestionerFragment : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
-        _binding = FragmentThirdQuestionerBinding.inflate(inflater, container, false)
+        _binding = FragmentSecondQuestionerBinding.inflate(inflater, container, false)
         return binding.root
     }
 

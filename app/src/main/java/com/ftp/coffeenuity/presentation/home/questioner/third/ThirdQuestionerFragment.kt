@@ -20,6 +20,7 @@ import com.ftp.coffeenuity.data.staticdata.Questioner.listSosialKeberlanjutan
 import com.ftp.coffeenuity.data.staticdata.Questioner.listSosialKeberlanjutanPetani
 import com.ftp.coffeenuity.data.utils.Resource
 import com.ftp.coffeenuity.databinding.FragmentSecondQuestionerBinding
+import com.ftp.coffeenuity.databinding.FragmentThirdQuestionerBinding
 import com.ftp.coffeenuity.domain.model.QuestionerPetani
 import com.ftp.coffeenuity.domain.model.QuestionerRoastery
 import com.ftp.coffeenuity.domain.model.QuestionerTengkulak
@@ -34,7 +35,7 @@ import org.koin.android.viewmodel.ext.android.viewModel
 
 class ThirdQuestionerFragment : Fragment() {
 
-    private var _binding: FragmentSecondQuestionerBinding? = null
+    private var _binding: FragmentThirdQuestionerBinding? = null
     private val binding get() = _binding!!
     private lateinit var ekonomiContinuityAdapter: QuestionerContinuityRangeAdapter
     private lateinit var sosialContinuityAdapter: QuestionerContinuityRangeAdapter
@@ -47,7 +48,7 @@ class ThirdQuestionerFragment : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
-        _binding = FragmentSecondQuestionerBinding.inflate(inflater, container, false)
+        _binding = FragmentThirdQuestionerBinding.inflate(inflater, container, false)
         return binding.root
     }
 
