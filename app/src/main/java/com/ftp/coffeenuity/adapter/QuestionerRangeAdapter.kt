@@ -2,6 +2,7 @@ package com.ftp.coffeenuity.adapter
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
+import android.widget.RadioButton
 import androidx.recyclerview.widget.RecyclerView
 import com.ftp.coffeenuity.databinding.ItemQuestionerRangeBinding
 import com.ftp.coffeenuity.domain.model.QuestionerRange
@@ -43,18 +44,9 @@ class QuestionerRangeAdapter : RecyclerView.Adapter<QuestionerRangeAdapter.OnBoa
                 rightTitle.text = model.rightTitle
                 items[position]?.range = 1
                 radioGroup.setOnCheckedChangeListener { _, _ ->
-                    val range = when (radioGroup.checkedRadioButtonId % 9){
-                        1->9
-                        2->7
-                        3->5
-                        4->3
-                        5->1
-                        6->-3
-                        7->-5
-                        8->-7
-                        9->-9
-                        else -> -1
-                    }
+                    val checkedRadioButtonId = radioGroup.checkedRadioButtonId
+                    val rb = itemView.findViewById<RadioButton>(checkedRadioButtonId)
+                    val range = rb.text.toString().toInt()
                     items[position]?.range = range
                 }
             }
