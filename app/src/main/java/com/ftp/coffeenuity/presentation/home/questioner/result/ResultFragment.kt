@@ -126,6 +126,16 @@ class ResultFragment : Fragment() {
                 "${response.indeksBerkelanjutan.lingkungan.indeksBerkelanjutan * 100}".take(4) + " %"
             tvKategoriLingkungan.text = response.indeksBerkelanjutan.lingkungan.kategori
             tvIndeksKeberlanjutanLingkungan.text = indeksLingkungan
+
+            val rataRataIndeksGeometri =
+                ( ((response.indeksBerkelanjutan.ekonomi.indeksBerkelanjutan) +
+                        (response.indeksBerkelanjutan.sosial.indeksBerkelanjutan) +
+                        (response.indeksBerkelanjutan.lingkungan.indeksBerkelanjutan)) / 3) * 100
+
+            val rataRataIndeksGeometriString =
+                "$rataRataIndeksGeometri".take(4) + " %"
+
+            tvRataRataIndeksGeometri.text = rataRataIndeksGeometriString
         }
     }
 
