@@ -117,6 +117,7 @@ dependencies {
     implementation 'com.chibatching.kotpref:kotpref:2.11.0'
     implementation 'com.github.mohan-dev1248:PosterSlider:1.0.2'
     implementation "com.airbnb.android:lottie:3.6.1"
+    implementation 'com.github.PhilJay:MPAndroidChart:v3.1.0-alpha'
 
     // RV Indicator
     implementation "com.kingfisherphuoc:easy-recyclerview-indicator:$recycler_indicator"

@@ -7,8 +7,27 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
 import androidx.navigation.fragment.navArgs
-import com.ftp.coffeenuity.R
 import com.ftp.coffeenuity.databinding.FragmentResultBinding
+import com.github.mikephil.charting.data.RadarDataSet
+import com.github.mikephil.charting.data.RadarData
+import com.github.mikephil.charting.data.RadarEntry
+import com.github.mikephil.charting.interfaces.datasets.IRadarDataSet
+import android.util.SparseIntArray
+import com.ftp.coffeenuity.R
+import com.github.mikephil.charting.data.Entry
+import com.github.mikephil.charting.utils.ViewPortHandler
+import com.github.mikephil.charting.formatter.IValueFormatter
+import com.github.mikephil.charting.components.YAxis
+
+import com.github.mikephil.charting.components.AxisBase
+
+import com.github.mikephil.charting.formatter.IAxisValueFormatter
+
+import com.github.mikephil.charting.components.XAxis
+
+
+
+
 
 class ResultFragment : Fragment() {
 
@@ -28,6 +47,66 @@ class ResultFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
         initView()
         initClick()
+        setupRadarChart()
+    }
+
+    private fun setupRadarChart() {
+        val response = args.response
+        val factors = SparseIntArray(3)
+        val scores = SparseIntArray(3)
+        val entries: ArrayList<RadarEntry> = ArrayList()
+        val dataSets: ArrayList<IRadarDataSet> = ArrayList()
+
+        factors.append(1, R.string.ekonomi);
+        factors.append(2, R.string.lingkungan);
+        factors.append(3, R.string.sosial);
+
+        val xAxis: XAxis = binding.RadarChart.getXAxis()
+        xAxis.xOffset = 0f
+        xAxis.yOffset = 0f
+        xAxis.textSize = 16f
+        xAxis.valueFormatter = object : IAxisValueFormatter {
+            private val mFactors = arrayOf(
+                getString(factors[1]), getString(factors[2]),
+                getString(factors[3])
+            )
+
+            override fun getFormattedValue(value: Float, axis: AxisBase): String {
+                return mFactors[value.toInt() % mFactors.size]
+            }
+        }
+
+        val yAxis: YAxis = binding.RadarChart.getYAxis()
+        yAxis.axisMinimum = 0f
+        yAxis.axisMaximum = 50f
+        yAxis.textSize = 0f
+        yAxis.setLabelCount(3, false)
+        yAxis.setDrawLabels(false)
+
+        scores.append(1, (response.indeksBerkelanjutan.ekonomi.indeksBerkelanjutan * 100).toInt());
+        scores.append(2, (response.indeksBerkelanjutan.sosial.indeksBerkelanjutan * 100).toInt());
+        scores.append(3, (response.indeksBerkelanjutan.lingkungan.indeksBerkelanjutan * 100).toInt());
+        entries.clear()
+
+        for (i in 1..3) {
+            entries.add(RadarEntry(scores[i].toFloat()))
+        }
+
+        val dataSet = RadarDataSet(entries, "")
+        dataSet.color = R.color.primaryPurple
+        dataSet.setDrawFilled(true)
+
+        dataSets.add(dataSet)
+
+        val data = RadarData(dataSets)
+        data.setValueTextSize(16f)
+
+        data.setValueFormatter { value, _, _, _ -> value.toString() }
+
+        binding.RadarChart.legend.setEnabled(false);
+        binding.RadarChart.getDescription().setEnabled(false);
+        binding.RadarChart.setData(data)
+
     }
 
     private fun initView() {
