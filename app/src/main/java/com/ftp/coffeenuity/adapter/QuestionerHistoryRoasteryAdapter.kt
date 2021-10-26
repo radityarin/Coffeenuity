@@ -4,11 +4,13 @@ import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.ftp.coffeenuity.databinding.ItemQuestionerHistoryBinding
+import com.ftp.coffeenuity.domain.model.QuestionerPetani
 import com.ftp.coffeenuity.domain.model.QuestionerRoastery
 
 class QuestionerHistoryRoasteryAdapter :
     RecyclerView.Adapter<QuestionerHistoryRoasteryAdapter.OnBoardingViewHolder>() {
 
+    private lateinit var onHistoryClickListener: OnHistoryClickListener
     private val items = mutableListOf<QuestionerRoastery?>()
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): OnBoardingViewHolder {
@@ -37,10 +39,17 @@ class QuestionerHistoryRoasteryAdapter :
         notifyDataSetChanged()
     }
 
+    fun setHistoryClickListener(onHistoryClickListener: OnHistoryClickListener) {
+        this.onHistoryClickListener=onHistoryClickListener
+    }
+
     inner class OnBoardingViewHolder(private val binding: ItemQuestionerHistoryBinding) :
         RecyclerView.ViewHolder(binding.root) {
 
         fun bind(model: QuestionerRoastery) {
+            binding.root.setOnClickListener {
+                onHistoryClickListener.onItemClickListener(model)
+            }
             with(binding) {
                 tvDate.text = model.date
                 tvKategoriEkonomi.text = model.ahpResponse.indeksBerkelanjutan.ekonomi.kategori
@@ -49,6 +58,10 @@ class QuestionerHistoryRoasteryAdapter :
             }
         }
 
+    }
+
+    interface OnHistoryClickListener {
+        fun onItemClickListener(questionerRoastery: QuestionerRoastery)
     }
 
 

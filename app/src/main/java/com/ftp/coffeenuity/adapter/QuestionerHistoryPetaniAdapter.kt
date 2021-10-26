@@ -10,6 +10,7 @@ class QuestionerHistoryPetaniAdapter :
     RecyclerView.Adapter<QuestionerHistoryPetaniAdapter.OnBoardingViewHolder>() {
 
     private val items = mutableListOf<QuestionerPetani?>()
+    private lateinit var onHistoryClickListener: OnHistoryClickListener
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): OnBoardingViewHolder {
         val layoutInflater = LayoutInflater.from(parent.context)
@@ -20,6 +21,10 @@ class QuestionerHistoryPetaniAdapter :
                 false
             )
         )
+    }
+
+    fun setHistoryClickListener(onHistoryClickListener: OnHistoryClickListener){
+        this.onHistoryClickListener = onHistoryClickListener
     }
 
     override fun onBindViewHolder(holder: OnBoardingViewHolder, position: Int) {
@@ -41,6 +46,9 @@ class QuestionerHistoryPetaniAdapter :
         RecyclerView.ViewHolder(binding.root) {
 
         fun bind(model: QuestionerPetani) {
+            binding.root.setOnClickListener {
+                onHistoryClickListener.onItemClickListener(model)
+            }
             with(binding) {
                 tvDate.text = model.date
                 tvKategoriEkonomi.text = model.ahpResponse.indeksBerkelanjutan.ekonomi.kategori
@@ -49,6 +57,10 @@ class QuestionerHistoryPetaniAdapter :
             }
         }
 
+    }
+
+    interface OnHistoryClickListener{
+        fun onItemClickListener(questionerPetani : QuestionerPetani)
     }
 
 

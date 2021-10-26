@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.core.widget.NestedScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:background="@color/backgroundColor"
     android:orientation="vertical"
     tools:context=".presentation.home.questioner.result.ResultFragment">
@@ -20,252 +20,272 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
 
-        <TextView
-            style="@style/headline5"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginHorizontal="@dimen/layout_margin2"
-            android:text="Hasil Perhitungan Fuzzy AHP"
-            android:textAlignment="center" />
-
-        <com.github.mikephil.charting.charts.RadarChart
-            android:id="@+id/RadarChart"
-            android:layout_width="match_parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            android:layout_height="@dimen/_400sdp" />
-
-        <LinearLayout
-            app:layout_constraintBottom_toBottomOf="parent"
-            android:layout_width="match_parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            android:layout_height="wrap_content"
-            android:gravity="center"
-            android:orientation="vertical">
-
             <TextView
-                style="@style/subtitle1"
+                android:id="@+id/tvTitle"
+                style="@style/headline5"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:text="Rata-rata Indeks Geometri" />
+                android:layout_marginHorizontal="@dimen/layout_margin2"
+                android:text="Hasil"
+                android:textAlignment="center"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
 
             <TextView
-                android:id="@+id/tvRataRataIndeksGeometri"
-                style="@style/subtitle2"
+                android:id="@+id/tvTitle2"
+                style="@style/caption2"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:text="30.0%" />
+                android:layout_marginHorizontal="@dimen/layout_margin2"
+                android:text="Berikut merupakan hasil dari proses perhitungan kuisioner"
+                android:textAlignment="center"
+                android:textColor="@color/colorTextGray"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/tvTitle" />
 
-            <TextView
-                style="@style/subtitle1"
-                android:layout_marginTop="@dimen/layout_margin2"
+            <com.github.mikephil.charting.charts.RadarChart
+                android:id="@+id/RadarChart"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:text="Ekonomi" />
+                android:layout_height="@dimen/_400sdp"
+                android:elevation="@dimen/_4sdp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <androidx.cardview.widget.CardView
+                android:id="@+id/cvBackground"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/_250sdp"
+                android:layout_marginTop="@dimen/layout_margin3"
+                app:cardCornerRadius="@dimen/_10sdp"
+                app:cardUseCompatPadding="true"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/tvTitle2" />
 
             <LinearLayout
+                android:id="@+id/linearLayout"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:gravity="center"
-                android:orientation="horizontal">
+                android:orientation="horizontal"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/cvBackground">
 
-                <LinearLayout
+                <androidx.cardview.widget.CardView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:layout_gravity="center"
                     android:layout_weight="1"
-                    android:orientation="vertical">
+                    app:cardCornerRadius="@dimen/_10sdp"
+                    app:cardUseCompatPadding="true">
 
-                    <TextView
-                        style="@style/caption"
+                    <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:text="Kategori" />
+                        android:gravity="center"
+                        android:orientation="vertical"
+                        android:padding="@dimen/layout_margin4">
 
-                    <TextView
-                        style="@style/caption"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:text="Indeks Keberlanjutan" />
-                </LinearLayout>
+                        <TextView
+                            style="@style/caption2_10"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="Ekonomi"
+                            android:textAlignment="center" />
 
-                <LinearLayout
+                        <app.futured.donut.DonutProgressView
+                            android:id="@+id/donutEkonomi"
+                            android:layout_width="@dimen/_60sdp"
+                            android:layout_height="@dimen/_60sdp"
+                            android:layout_marginTop="@dimen/layout_margin3"
+                            app:donut_gapAngle="270"
+                            app:donut_gapWidth="0"
+                            app:donut_strokeWidth="10dp" />
+
+                        <TextView
+                            android:id="@+id/tvIndeksKeberlanjutanEkonomi"
+                            style="@style/caption"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="40%"
+                            android:textAlignment="center" />
+
+                        <TextView
+                            android:id="@+id/tvKategoriEkonomi"
+                            style="@style/caption"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="Buruk"
+                            android:textAlignment="center" />
+                    </LinearLayout>
+                </androidx.cardview.widget.CardView>
+
+                <androidx.cardview.widget.CardView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:layout_gravity="center"
                     android:layout_weight="1"
-                    android:orientation="vertical">
+                    app:cardCornerRadius="@dimen/_10sdp"
+                    app:cardUseCompatPadding="true">
 
-                    <TextView
-                        android:id="@+id/tvKategoriEkonomi"
-                        style="@style/caption"
+                    <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:text="Buruk"
-                        android:textAlignment="textEnd"
-                        android:textStyle="bold" />
+                        android:gravity="center"
+                        android:orientation="vertical"
+                        android:padding="@dimen/layout_margin4">
 
-                    <TextView
-                        android:id="@+id/tvIndeksKeberlanjutanEkonomi"
-                        style="@style/caption"
+                        <TextView
+                            style="@style/caption2_10"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="Sosial"
+                            android:textAlignment="center" />
+
+                        <app.futured.donut.DonutProgressView
+                            android:id="@+id/donutSosial"
+                            android:layout_width="@dimen/_60sdp"
+                            android:layout_height="@dimen/_60sdp"
+                            android:layout_marginTop="@dimen/layout_margin3"
+                            app:donut_gapAngle="270"
+                            app:donut_gapWidth="0"
+                            app:donut_strokeWidth="10dp" />
+
+                        <TextView
+                            android:id="@+id/tvIndeksKeberlanjutanSosial"
+                            style="@style/caption"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="40%"
+                            android:textAlignment="center" />
+
+                        <TextView
+                            android:id="@+id/tvKategoriSosial"
+                            style="@style/caption"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="Buruk"
+                            android:textAlignment="center" />
+                    </LinearLayout>
+                </androidx.cardview.widget.CardView>
+
+                <androidx.cardview.widget.CardView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_weight="1"
+                    app:cardCornerRadius="@dimen/_10sdp"
+                    app:cardUseCompatPadding="true">
+
+                    <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:text="36.5%"
-                        android:textAlignment="textEnd"
-                        android:textStyle="bold" />
-                </LinearLayout>
+                        android:gravity="center"
+                        android:orientation="vertical"
+                        android:padding="@dimen/layout_margin4">
+
+                        <TextView
+                            style="@style/caption2_10"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="Lingkungan"
+                            android:textAlignment="center" />
+
+                        <app.futured.donut.DonutProgressView
+                            android:id="@+id/donutLingkungan"
+                            android:layout_width="@dimen/_60sdp"
+                            android:layout_height="@dimen/_60sdp"
+                            android:layout_marginTop="@dimen/layout_margin3"
+                            app:donut_gapAngle="270"
+                            app:donut_gapWidth="0"
+                            app:donut_strokeWidth="10dp" />
+
+                        <TextView
+                            android:id="@+id/tvIndeksKeberlanjutanLingkungan"
+                            style="@style/caption"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="40%"
+                            android:textAlignment="center" />
+
+                        <TextView
+                            android:id="@+id/tvKategoriLingkungan"
+                            style="@style/caption"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="Buruk"
+                            android:textAlignment="center" />
+                    </LinearLayout>
+                </androidx.cardview.widget.CardView>
+
             </LinearLayout>
-        </LinearLayout>
+
+            <androidx.cardview.widget.CardView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:cardCornerRadius="@dimen/_10sdp"
+                app:cardUseCompatPadding="true"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/linearLayout">
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:padding="@dimen/layout_margin2">
+
+                    <TextView
+                        style="@style/caption"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Hasil Rata-rata\nIndeks Geometri"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+
+                    <TextView
+                        android:id="@+id/tvRataRata"
+                        style="@style/caption"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginEnd="@dimen/layout_margin2"
+                        android:text="40%"
+                        android:textAlignment="center"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toStartOf="@id/donutRataRata"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+                    <app.futured.donut.DonutProgressView
+                        android:id="@+id/donutRataRata"
+                        android:layout_width="@dimen/_50sdp"
+                        android:layout_height="@dimen/_50sdp"
+                        android:layout_marginTop="@dimen/layout_margin3"
+                        app:donut_gapAngle="270"
+                        app:donut_gapWidth="0"
+                        app:donut_strokeWidth="10dp"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
+                </androidx.constraintlayout.widget.ConstraintLayout>
+            </androidx.cardview.widget.CardView>
+
         </androidx.constraintlayout.widget.ConstraintLayout>
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="@dimen/layout_margin2"
-            android:gravity="center"
-            android:orientation="vertical">
-
-            <TextView
-                style="@style/subtitle1"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:text="Sosial" />
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:gravity="center"
-                android:orientation="horizontal">
-
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:orientation="vertical">
-
-                    <TextView
-                        style="@style/caption"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:text="Kategori" />
-
-                    <TextView
-                        style="@style/caption"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:text="Indeks Keberlanjutan" />
-                </LinearLayout>
-
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:orientation="vertical">
-
-                    <TextView
-                        android:id="@+id/tvKategoriSosial"
-                        style="@style/caption"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:text="Buruk"
-                        android:textAlignment="textEnd"
-                        android:textStyle="bold" />
-
-                    <TextView
-                        android:id="@+id/tvIndeksKeberlanjutanSosial"
-                        style="@style/caption"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:text="36.5%"
-                        android:textAlignment="textEnd"
-                        android:textStyle="bold" />
-                </LinearLayout>
-            </LinearLayout>
-        </LinearLayout>
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="@dimen/layout_margin2"
-            android:gravity="center"
-            android:orientation="vertical">
-
-            <TextView
-                style="@style/subtitle1"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:text="Lingkungan" />
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:gravity="center"
-                android:orientation="horizontal">
-
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:orientation="vertical">
-
-                    <TextView
-                        style="@style/caption"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:text="Kategori" />
-
-                    <TextView
-                        style="@style/caption"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:text="Indeks Keberlanjutan" />
-                </LinearLayout>
-
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:orientation="vertical">
-
-                    <TextView
-                        android:id="@+id/tvKategoriLingkungan"
-                        style="@style/caption"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:text="Buruk"
-                        android:textAlignment="textEnd"
-                        android:textStyle="bold" />
-
-                    <TextView
-                        android:id="@+id/tvIndeksKeberlanjutanLingkungan"
-                        style="@style/caption"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:text="36.5%"
-                        android:textAlignment="textEnd"
-                        android:textStyle="bold" />
-                </LinearLayout>
-            </LinearLayout>
-        </LinearLayout>
 
         <Button
             android:id="@+id/btnNext"
-            android:layout_marginTop="@dimen/layout_margin2"
             style="@style/ButtonPrimary"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:backgroundTint="@color/colorRose50"
             android:layout_alignParentBottom="true"
             android:layout_gravity="bottom"
+            android:layout_marginTop="@dimen/layout_margin2"
             android:layout_marginBottom="@dimen/layout_margin2"
-            android:text="Selanjutnya" />
+            android:text="Strategi" />
     </LinearLayout>
 
 </androidx.core.widget.NestedScrollView>

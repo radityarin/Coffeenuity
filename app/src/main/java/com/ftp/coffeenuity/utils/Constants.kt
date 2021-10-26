@@ -20,4 +20,13 @@ object Constants {
     const val PETANI = "Petani"
     const val TENGKULAK = "Tengkulak"
     const val ROASTERY = "Roastery"
+
+    const val BURUK = "Buruk"
+    const val KURANG = "Kurang"
+    const val CUKUP = "Cukup"
+    const val BAIK = "Baik"
+
+    const val SOSIAL = "Sosial"
+    const val LINGKUNGAN = "Lingkungan"
+    const val EKONOMI = "Ekonomi"
 }

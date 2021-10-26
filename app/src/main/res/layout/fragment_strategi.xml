@@ -1,14 +1,75 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.core.widget.NestedScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".presentation.home.questioner.strategi.StrategiFragment">
 
-    <!-- TODO: Update blank fragment layout -->
-    <TextView
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:text="@string/hello_blank_fragment" />
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="@dimen/layout_margin2">
 
-</FrameLayout>
+        <TextView
+            style="@style/headline5"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:text="Strategi"
+            android:textAlignment="center" />
+
+        <TextView
+            style="@style/subtitle1"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginHorizontal="@dimen/layout_margin2"
+            android:text="Ekonomi" />
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/rvStrategiEkonomi"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+            tools:itemCount="2"
+            tools:listitem="@layout/item_strategi" />
+
+        <TextView
+            style="@style/subtitle1"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginHorizontal="@dimen/layout_margin2"
+            android:text="Sosial" />
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/rvStrategiSosial"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+            tools:itemCount="2"
+            tools:listitem="@layout/item_strategi" />
+
+        <TextView
+            style="@style/subtitle1"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginHorizontal="@dimen/layout_margin2"
+            android:text="Lingkungan" />
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/rvStrategiLingkungan"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+            tools:itemCount="2"
+            tools:listitem="@layout/item_strategi" />
+
+        <Button
+            android:id="@+id/btnBack"
+            style="@style/ButtonPrimary"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/layout_margin"
+            android:text="Kembali ke Beranda" />
+    </LinearLayout>
+</androidx.core.widget.NestedScrollView>

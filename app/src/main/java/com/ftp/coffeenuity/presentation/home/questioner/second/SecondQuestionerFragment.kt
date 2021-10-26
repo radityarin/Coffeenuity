@@ -18,7 +18,6 @@ import com.ftp.coffeenuity.data.staticdata.Questioner.listSosial
 import com.ftp.coffeenuity.data.staticdata.Questioner.listSosialPetani
 import com.ftp.coffeenuity.data.staticdata.Questioner.listSubKriteria
 import com.ftp.coffeenuity.databinding.FragmentSecondQuestionerBinding
-import com.ftp.coffeenuity.databinding.FragmentThirdQuestionerBinding
 import com.ftp.coffeenuity.utils.Constants
 import com.ftp.coffeenuity.utils.UtilsView.snackErrorText
 
@@ -81,6 +80,7 @@ class SecondQuestionerFragment : Fragment() {
             }
         }
     }
+
 
     private fun check(): Boolean {
         var check = false

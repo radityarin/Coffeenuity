@@ -130,4 +130,6 @@ dependencies {
     androidTestImplementation "androidx.room:room-testing:$room_version"
     implementation 'androidx.room:room-ktx:2.2.1'
     kapt "androidx.room:room-compiler:2.2.1"
+
+    implementation("app.futured.donut:donut:2.1.0")
 }

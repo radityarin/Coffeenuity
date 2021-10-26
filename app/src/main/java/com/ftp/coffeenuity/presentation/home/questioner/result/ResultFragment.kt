@@ -1,33 +1,26 @@
 package com.ftp.coffeenuity.presentation.home.questioner.result
 
+import android.graphics.Color
 import android.os.Bundle
+import android.util.SparseIntArray
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
 import androidx.navigation.fragment.navArgs
-import com.ftp.coffeenuity.databinding.FragmentResultBinding
-import com.github.mikephil.charting.data.RadarDataSet
-import com.github.mikephil.charting.data.RadarData
-import com.github.mikephil.charting.data.RadarEntry
-import com.github.mikephil.charting.interfaces.datasets.IRadarDataSet
-import android.util.SparseIntArray
+import app.futured.donut.DonutSection
 import com.ftp.coffeenuity.R
-import com.github.mikephil.charting.data.Entry
-import com.github.mikephil.charting.utils.ViewPortHandler
-import com.github.mikephil.charting.formatter.IValueFormatter
-import com.github.mikephil.charting.components.YAxis
-
+import com.ftp.coffeenuity.data.source.remote.network.response.AHPResponse
+import com.ftp.coffeenuity.databinding.FragmentResultBinding
 import com.github.mikephil.charting.components.AxisBase
-
-import com.github.mikephil.charting.formatter.IAxisValueFormatter
-
 import com.github.mikephil.charting.components.XAxis
-
-
-
-
+import com.github.mikephil.charting.components.YAxis
+import com.github.mikephil.charting.data.RadarData
+import com.github.mikephil.charting.data.RadarDataSet
+import com.github.mikephil.charting.data.RadarEntry
+import com.github.mikephil.charting.formatter.IAxisValueFormatter
+import com.github.mikephil.charting.interfaces.datasets.IRadarDataSet
 
 class ResultFragment : Fragment() {
 
@@ -85,7 +78,10 @@ class ResultFragment : Fragment() {
 
         scores.append(1, (response.indeksBerkelanjutan.ekonomi.indeksBerkelanjutan * 100).toInt());
         scores.append(2, (response.indeksBerkelanjutan.sosial.indeksBerkelanjutan * 100).toInt());
-        scores.append(3, (response.indeksBerkelanjutan.lingkungan.indeksBerkelanjutan * 100).toInt());
+        scores.append(
+            3,
+            (response.indeksBerkelanjutan.lingkungan.indeksBerkelanjutan * 100).toInt()
+        );
         entries.clear()
 
         for (i in 1..3) {
@@ -128,20 +124,61 @@ class ResultFragment : Fragment() {
             tvIndeksKeberlanjutanLingkungan.text = indeksLingkungan
 
             val rataRataIndeksGeometri =
-                ( ((response.indeksBerkelanjutan.ekonomi.indeksBerkelanjutan) +
+                (((response.indeksBerkelanjutan.ekonomi.indeksBerkelanjutan) +
                         (response.indeksBerkelanjutan.sosial.indeksBerkelanjutan) +
                         (response.indeksBerkelanjutan.lingkungan.indeksBerkelanjutan)) / 3) * 100
 
             val rataRataIndeksGeometriString =
                 "$rataRataIndeksGeometri".take(4) + " %"
 
-            tvRataRataIndeksGeometri.text = rataRataIndeksGeometriString
+            tvRataRata.text = rataRataIndeksGeometriString
+            setupDonutChart(response, rataRataIndeksGeometri)
         }
+    }
+
+    private fun setupDonutChart(response: AHPResponse, rataRataIndeksGeometri: Double) {
+        val section1 = DonutSection(
+            name = " ",
+            color = Color.parseColor("#595DE5"),
+            amount = response.indeksBerkelanjutan.ekonomi.indeksBerkelanjutan.toFloat() * 100
+        )
+
+        binding.donutEkonomi.cap = 100f
+        binding.donutEkonomi.submitData(listOf(section1))
+
+        val section12 = DonutSection(
+            name = " ",
+            color = Color.parseColor("#595DE5"),
+            amount = response.indeksBerkelanjutan.lingkungan.indeksBerkelanjutan.toFloat() * 100
+        )
+
+        binding.donutLingkungan.cap = 100f
+        binding.donutLingkungan.submitData(listOf(section12))
+
+        val section123 = DonutSection(
+            name = " ",
+            color = Color.parseColor("#595DE5"),
+            amount = response.indeksBerkelanjutan.sosial.indeksBerkelanjutan.toFloat() * 100
+        )
+
+        binding.donutSosial.cap = 100f
+        binding.donutSosial.submitData(listOf(section123))
+
+        val section1234 = DonutSection(
+            name = " ",
+            color = Color.parseColor("#AF1254"),
+            amount = rataRataIndeksGeometri.toFloat()
+        )
+
+        binding.donutRataRata.cap = 100f
+        binding.donutRataRata.submitData(listOf(section1234))
     }
 
     private fun initClick() {
         binding.btnNext.setOnClickListener {
-            findNavController().navigate(R.id.action_resultFragment_to_strategiFragment)
+            val action =
+                ResultFragmentDirections.actionResultFragmentToStrategiFragment(args.response)
+            findNavController().navigate(action)
         }
     }
 

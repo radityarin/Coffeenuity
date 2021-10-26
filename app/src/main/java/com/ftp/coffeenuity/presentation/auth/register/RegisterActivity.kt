@@ -167,6 +167,7 @@ class RegisterActivity : AppCompatActivity() {
                         role = user.role
                     }
                     startActivity(Intent(this, MainActivity::class.java))
+                    finishAffinity()
                     binding.btnRegister.hideLoading()
                 }
                 is Resource.Error -> {
