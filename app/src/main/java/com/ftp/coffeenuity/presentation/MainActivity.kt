@@ -10,7 +10,9 @@ import androidx.navigation.fragment.NavHostFragment
 import androidx.navigation.fragment.findNavController
 import androidx.navigation.ui.NavigationUI
 import com.ftp.coffeenuity.R
+import com.ftp.coffeenuity.data.pref.ProfilePrefs
 import com.ftp.coffeenuity.databinding.ActivityMainBinding
+import com.ftp.coffeenuity.utils.Constants
 
 class MainActivity : AppCompatActivity() {
 
@@ -27,6 +29,7 @@ class MainActivity : AppCompatActivity() {
         val view = binding.root
         setContentView(view)
         setupNavigation()
+
     }
 
 

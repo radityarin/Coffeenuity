@@ -173,7 +173,10 @@ class FirstQuestionerFragmentPetani : Fragment() {
         val action =
             ahpResponse?.let {
                 FirstQuestionerFragmentPetaniDirections.actionFirstQuestionerFragmentPetaniToResultFragment(
-                    it
+                    it,
+                    args.questionerPetani?.firstQuestioner,
+                    null,
+                    null
                 )
             }
         if (action != null) {

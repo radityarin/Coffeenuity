@@ -1,10 +1,13 @@
 package com.ftp.coffeenuity.adapter
 
 import android.view.LayoutInflater
+import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
+import com.ftp.coffeenuity.data.pref.ProfilePrefs
 import com.ftp.coffeenuity.databinding.ItemQuestionerHistoryBinding
 import com.ftp.coffeenuity.domain.model.QuestionerTengkulak
+import com.ftp.coffeenuity.utils.Constants
 
 class QuestionerHistoryTengkulakAdapter :
     RecyclerView.Adapter<QuestionerHistoryTengkulakAdapter.OnBoardingViewHolder>() {
@@ -50,11 +53,17 @@ class QuestionerHistoryTengkulakAdapter :
                 onHistoryClickListener.onItemClickListener(model)
             }
             with(binding) {
+                tvName.text = model.username
                 tvDate.text = model.date
                 tvKategoriEkonomi.text = model.ahpResponse.indeksBerkelanjutan.ekonomi.kategori
                 tvKategoriSosial.text = model.ahpResponse.indeksBerkelanjutan.sosial.kategori
                 tvKategoriLingkungan.text =
                     model.ahpResponse.indeksBerkelanjutan.lingkungan.kategori
+            }
+            if (ProfilePrefs.role == Constants.ADMIN) {
+                binding.tvName.visibility = View.VISIBLE
+            } else {
+                binding.tvName.visibility = View.GONE
             }
         }
 

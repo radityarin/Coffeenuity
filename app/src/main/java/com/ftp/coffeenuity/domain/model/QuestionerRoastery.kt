@@ -9,6 +9,7 @@ import kotlinx.parcelize.Parcelize
 data class QuestionerRoastery(
     var idQuestioner: String = "",
     var idUser: String = "",
+    var username: String = "",
     var date: String = "",
     var firstQuestioner: RoasteryFirstQuestioner = RoasteryFirstQuestioner(),
     var ahpRequest: String = "",

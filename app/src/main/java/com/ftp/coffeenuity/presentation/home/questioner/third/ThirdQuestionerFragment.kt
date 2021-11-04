@@ -138,6 +138,7 @@ class ThirdQuestionerFragment : Fragment() {
                     val questioner = QuestionerPetani(
                         idQuestioner = Utils.getRandomString(20),
                         idUser = ProfilePrefs.idFirebase,
+                        username = ProfilePrefs.fullname,
                         date = UtilsDate.getCurrentDateTimeForUsersSide(),
                         firstQuestioner = firstQuestioner,
                         ahpRequest = Gson().toJson(ahpRequest),
@@ -152,6 +153,7 @@ class ThirdQuestionerFragment : Fragment() {
                     val questioner = QuestionerTengkulak(
                         idQuestioner = Utils.getRandomString(20),
                         idUser = ProfilePrefs.idFirebase,
+                        username = ProfilePrefs.fullname,
                         date = UtilsDate.getCurrentDateTimeForUsersSide(),
                         firstQuestioner = firstQuestioner,
                         ahpRequest = Gson().toJson(ahpRequest),
@@ -166,6 +168,7 @@ class ThirdQuestionerFragment : Fragment() {
                     val questioner = QuestionerRoastery(
                         idQuestioner = Utils.getRandomString(20),
                         idUser = ProfilePrefs.idFirebase,
+                        username = ProfilePrefs.fullname,
                         date = UtilsDate.getCurrentDateTimeForUsersSide(),
                         firstQuestioner = firstQuestioner,
                         ahpRequest = Gson().toJson(ahpRequest),
@@ -234,7 +237,10 @@ class ThirdQuestionerFragment : Fragment() {
     private fun navigateToResultFragment(ahpResponse: AHPResponse) {
         val action =
             ThirdQuestionerFragmentDirections.actionSecondQuestionerFragmentToResultFragment(
-                ahpResponse
+                ahpResponse,
+                args.petani,
+                args.tengkulak,
+                args.roastery
             )
         findNavController().navigate(action)
     }

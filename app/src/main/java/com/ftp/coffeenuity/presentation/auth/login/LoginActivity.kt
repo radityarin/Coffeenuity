@@ -9,6 +9,7 @@ import com.ftp.coffeenuity.databinding.ActivityLoginBinding
 import com.ftp.coffeenuity.presentation.MainActivity
 import com.ftp.coffeenuity.presentation.admin.AdminMainActivity
 import com.ftp.coffeenuity.presentation.auth.AuthViewModel
+import com.ftp.coffeenuity.utils.Constants
 import org.koin.android.viewmodel.ext.android.viewModel
 
 
@@ -30,7 +31,8 @@ class LoginActivity : AppCompatActivity() {
         with(binding) {
             btnLogin.setOnClickListener {
                 if (tilEmail.editText?.text.toString() == "admin6@system.com" && tilPassword.editText?.text.toString() == "Pass123!") {
-                    startActivity(Intent(this@LoginActivity, AdminMainActivity::class.java))
+                    ProfilePrefs.role = Constants.ADMIN
+                    startActivity(Intent(this@LoginActivity, MainActivity::class.java))
                 } else {
                     authViewModel.login(
                         tilEmail.editText?.text.toString(),

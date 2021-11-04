@@ -11,8 +11,10 @@ import androidx.navigation.fragment.findNavController
 import androidx.navigation.fragment.navArgs
 import app.futured.donut.DonutSection
 import com.ftp.coffeenuity.R
+import com.ftp.coffeenuity.data.pref.ProfilePrefs
 import com.ftp.coffeenuity.data.source.remote.network.response.AHPResponse
 import com.ftp.coffeenuity.databinding.FragmentResultBinding
+import com.ftp.coffeenuity.utils.Constants
 import com.github.mikephil.charting.components.AxisBase
 import com.github.mikephil.charting.components.XAxis
 import com.github.mikephil.charting.components.YAxis
@@ -41,6 +43,9 @@ class ResultFragment : Fragment() {
         initView()
         initClick()
         setupRadarChart()
+        if (ProfilePrefs.role == Constants.ADMIN){
+            binding.btnNext.visibility = View.GONE
+        }
     }
 
     private fun setupRadarChart() {
@@ -177,7 +182,12 @@ class ResultFragment : Fragment() {
     private fun initClick() {
         binding.btnNext.setOnClickListener {
             val action =
-                ResultFragmentDirections.actionResultFragmentToStrategiFragment(args.response)
+                ResultFragmentDirections.actionResultFragmentToStrategiFragment(
+                    args.response,
+                    args.petani,
+                    args.tengkulak,
+                    args.roastery
+                )
             findNavController().navigate(action)
         }
     }

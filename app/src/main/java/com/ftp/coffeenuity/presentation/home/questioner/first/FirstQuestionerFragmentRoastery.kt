@@ -12,7 +12,6 @@ import androidx.navigation.fragment.navArgs
 import com.ftp.coffeenuity.data.pref.ProfilePrefs
 import com.ftp.coffeenuity.databinding.FragmentFirstQuestionerRoasterBinding
 import com.ftp.coffeenuity.domain.model.roastery.RoasteryFirstQuestioner
-import com.ftp.coffeenuity.presentation.home.questioner.third.ThirdQuestionerFragmentDirections
 import com.ftp.coffeenuity.utils.Constants
 
 class FirstQuestionerFragmentRoastery : Fragment() {
@@ -95,7 +94,7 @@ class FirstQuestionerFragmentRoastery : Fragment() {
     private fun initClick() {
         with(binding) {
             btnNext.setOnClickListener {
-                if (args.questionerRoastery==null) {
+                if (args.questionerRoastery == null) {
                     goToSecondQuestioner()
                 } else {
                     straightToResult()
@@ -147,7 +146,10 @@ class FirstQuestionerFragmentRoastery : Fragment() {
         val action =
             ahpResponse?.let {
                 FirstQuestionerFragmentRoasteryDirections.actionFirstQuestionerFragmentRoasteryToResultFragment(
-                    it
+                    it,
+                    null,
+                    null,
+                    args.questionerRoastery?.firstQuestioner
                 )
             }
         if (action != null) {
@@ -156,13 +158,13 @@ class FirstQuestionerFragmentRoastery : Fragment() {
 
     }
 
-    private fun disableEditText(listEditText : List<EditText>){
+    private fun disableEditText(listEditText: List<EditText>) {
         listEditText.forEach {
             it.isEnabled = false
         }
     }
 
-    private fun disableCheckBox(listCheckBox : List<CheckBox>){
+    private fun disableCheckBox(listCheckBox: List<CheckBox>) {
         listCheckBox.forEach {
             it.isEnabled = false
         }

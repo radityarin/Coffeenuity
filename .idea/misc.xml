@@ -6,6 +6,7 @@
         <entry key="app/src/main/res/drawable-v24/ic_circle_not_selected.xml" value="0.3055555555555556" />
         <entry key="app/src/main/res/drawable-v24/ic_circle_selected.xml" value="0.3055555555555556" />
         <entry key="app/src/main/res/drawable/bg_edit_text.xml" value="0.1" />
+        <entry key="app/src/main/res/drawable/bg_history.xml" value="0.3140625" />
         <entry key="app/src/main/res/drawable/bottom_nav_selector.xml" value="0.115625" />
         <entry key="app/src/main/res/drawable/ic_baseline_account_circle_24.xml" value="0.30923076923076925" />
         <entry key="app/src/main/res/drawable/ic_baseline_account_circle_24_unselected.xml" value="0.30923076923076925" />
@@ -25,10 +26,11 @@
         <entry key="app/src/main/res/layout/fragment_admin_home.xml" value="0.29791666666666666" />
         <entry key="app/src/main/res/layout/fragment_first_questioner.xml" value="0.29791666666666666" />
         <entry key="app/src/main/res/layout/fragment_first_questioner_petani.xml" value="0.2828882294757666" />
-        <entry key="app/src/main/res/layout/fragment_first_questioner_roaster.xml" value="0.1" />
+        <entry key="app/src/main/res/layout/fragment_first_questioner_roaster.xml" value="0.335" />
         <entry key="app/src/main/res/layout/fragment_first_questioner_tengkulak.xml" value="0.24761904761904763" />
         <entry key="app/src/main/res/layout/fragment_history.xml" value="0.29791666666666666" />
         <entry key="app/src/main/res/layout/fragment_home.xml" value="0.25" />
+        <entry key="app/src/main/res/layout/fragment_login.xml" value="0.159375" />
         <entry key="app/src/main/res/layout/fragment_profile.xml" value="0.25" />
         <entry key="app/src/main/res/layout/fragment_result.xml" value="0.335" />
         <entry key="app/src/main/res/layout/fragment_second_questioner.xml" value="0.29791666666666666" />

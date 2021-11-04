@@ -10,13 +10,14 @@ object StaticData {
         listOnBoardingModel.add(
             OnBoarding(
                 R.drawable.ic_onboarding_1,
-                "Menanam tanaman kopi dengan solusi keberlanjutan setalah panen akan memudahkan dalam melakukan peningkatan saat panen selanjutnya."
+                "Selamat Datang\n" +
+                        "Di Sistem Penunjang Keputusan Peningkatan Keberlanjutan Rantai Pasok Agroindustri"
             )
         )
         listOnBoardingModel.add(
             OnBoarding(
                 R.drawable.ic_onboarding_2,
-                "Memudahkan petani dengan menggunakan smartphone dapat mengetahui tingkat keberlanjutan tanaman kopi."
+                "Sistem ini dirancang untuk memudahkan peneliti untuk menilai tingkat keberlanjutan rantai pasok dan merumuskan strategi peningkatannya"
             )
         )
         listOnBoardingModel.add(

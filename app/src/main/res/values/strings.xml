@@ -6,6 +6,7 @@
     <string name="ekonomi">Ekonomi</string>
     <string name="lingkungan">Lingkungan</string>
     <string name="sosial">Sosial</string>
+    <string name="image">Image</string>
 
     <string-array name="pekerjaan">
         <item>Pilih Pekerjaan</item>

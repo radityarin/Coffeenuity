@@ -59,4 +59,11 @@ class HomeFragment : Fragment() {
             }
         }
     }
+
+    override fun onStart() {
+        super.onStart()
+        if (ProfilePrefs.role == Constants.ADMIN){
+            findNavController().navigate(R.id.action_homeFragment_to_adminHomeFragment)
+        }
+    }
 }

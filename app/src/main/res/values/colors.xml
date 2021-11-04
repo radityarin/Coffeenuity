@@ -8,11 +8,11 @@
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
     <color name="primary">#000000</color>
-    <color name="primaryPurple">#595DE5</color>
+    <color name="primaryPurple">#787AF3</color>
 
     <color name="backgroundColor">#F3F3F3</color>
     // Alert and Status
-    <color name="colorRose50">#AF1254</color>
+    <color name="colorRose50">#EB4B4B</color>
     <color name="colorRose10">#F7E8EE</color>
     <color name="colorOrange50">#F59F00</color>
     <color name="colorOrange10">#FFEDCC</color>

@@ -10,7 +10,6 @@ object ProfilePrefs: KotprefModel() {
     var usia by stringPref("")
     var alamat by stringPref("")
     var email by stringPref("")
-    var jwt_token by stringPref("")
     var jumlahTenagaKerja by stringPref("")
     var sifatUsaha by stringPref("")
     var jenisKelamin by stringPref("")

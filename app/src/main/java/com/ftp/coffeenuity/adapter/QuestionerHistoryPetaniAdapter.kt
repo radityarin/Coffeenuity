@@ -1,10 +1,13 @@
 package com.ftp.coffeenuity.adapter
 
 import android.view.LayoutInflater
+import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
+import com.ftp.coffeenuity.data.pref.ProfilePrefs
 import com.ftp.coffeenuity.databinding.ItemQuestionerHistoryBinding
 import com.ftp.coffeenuity.domain.model.QuestionerPetani
+import com.ftp.coffeenuity.utils.Constants
 
 class QuestionerHistoryPetaniAdapter :
     RecyclerView.Adapter<QuestionerHistoryPetaniAdapter.OnBoardingViewHolder>() {
@@ -23,7 +26,7 @@ class QuestionerHistoryPetaniAdapter :
         )
     }
 
-    fun setHistoryClickListener(onHistoryClickListener: OnHistoryClickListener){
+    fun setHistoryClickListener(onHistoryClickListener: OnHistoryClickListener) {
         this.onHistoryClickListener = onHistoryClickListener
     }
 
@@ -50,17 +53,24 @@ class QuestionerHistoryPetaniAdapter :
                 onHistoryClickListener.onItemClickListener(model)
             }
             with(binding) {
+                tvName.text = model.username
                 tvDate.text = model.date
                 tvKategoriEkonomi.text = model.ahpResponse.indeksBerkelanjutan.ekonomi.kategori
                 tvKategoriSosial.text = model.ahpResponse.indeksBerkelanjutan.sosial.kategori
-                tvKategoriLingkungan.text = model.ahpResponse.indeksBerkelanjutan.lingkungan.kategori
+                tvKategoriLingkungan.text =
+                    model.ahpResponse.indeksBerkelanjutan.lingkungan.kategori
+            }
+            if (ProfilePrefs.role == Constants.ADMIN) {
+                binding.tvName.visibility = View.VISIBLE
+            } else {
+                binding.tvName.visibility = View.GONE
             }
         }
 
     }
 
-    interface OnHistoryClickListener{
-        fun onItemClickListener(questionerPetani : QuestionerPetani)
+    interface OnHistoryClickListener {
+        fun onItemClickListener(questionerPetani: QuestionerPetani)
     }
 
 

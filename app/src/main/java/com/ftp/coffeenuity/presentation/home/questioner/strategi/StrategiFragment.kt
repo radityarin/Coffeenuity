@@ -69,5 +69,59 @@ class StrategiFragment : Fragment() {
             rvStrategiSosial.adapter = strategiSosialAdapter
             rvStrategiLingkungan.adapter = strategiLingkunganAdapter
         }
+
+        when(ProfilePrefs.role){
+            Constants.PETANI->{
+                with(binding){
+                    tvBiayaProduksi.text = args.petani?.editText1
+                    tvPasarProduksi.text = args.petani?.editText7
+                    tvJumlahProduksi.text = args.petani?.editText3
+                    tvJenisGrade.text = convertToGradeNumber(args.petani?.checkBox8.toString())
+                    tvHasilProduksi.text = args.petani?.editText2
+                    tvHasilSosial.text = args.response.indeksBerkelanjutan.sosial.kategori
+                    tvHasilEkonomi.text = args.response.indeksBerkelanjutan.ekonomi.kategori
+                    tvHasilLingkungan.text = args.response.indeksBerkelanjutan.lingkungan.kategori
+                }
+            }
+            Constants.ROASTERY->{
+                with(binding){
+                    tvBiayaProduksi.text = args.roastery?.editText1
+                    tvPasarProduksi.text = args.roastery?.editText8
+                    tvJumlahProduksi.text = args.roastery?.editText3
+                    tvJenisGrade.visibility = View.GONE
+                    tvTitleJenisGrade.visibility = View.GONE
+                    tvHasilProduksi.text = args.roastery?.editText2
+                    tvHasilSosial.text = args.response.indeksBerkelanjutan.sosial.kategori
+                    tvHasilEkonomi.text = args.response.indeksBerkelanjutan.ekonomi.kategori
+                    tvHasilLingkungan.text = args.response.indeksBerkelanjutan.lingkungan.kategori
+                }
+            }
+            Constants.TENGKULAK->{
+                with(binding){
+                    tvTitleBiayaProduksi.visibility = View.GONE
+                    tvBiayaProduksi.visibility = View.GONE
+                    tvPasarProduksi.text = args.tengkulak?.editText4
+                    tvTitleJumlahProduksi.visibility = View.GONE
+                    tvJumlahProduksi.visibility = View.GONE
+                    tvTitleHasilProduksi.visibility = View.GONE
+                    tvHasilProduksi.visibility = View.GONE
+                    tvJenisGrade.text = convertToGradeNumber(args.tengkulak?.checkBox7.toString())
+                    tvHasilSosial.text = args.response.indeksBerkelanjutan.sosial.kategori
+                    tvHasilEkonomi.text = args.response.indeksBerkelanjutan.ekonomi.kategori
+                    tvHasilLingkungan.text = args.response.indeksBerkelanjutan.lingkungan.kategori
+                }
+            }
+        }
+    }
+
+    private fun convertToGradeNumber(toString: String): String {
+        val listGrade = toString.split(",").dropLast(1)
+        var grade = ""
+        listGrade.forEachIndexed { index, s ->
+            if (s == "true"){
+                grade += "Grade ${index + 1}, "
+            }
+        }
+        return grade
     }
 }

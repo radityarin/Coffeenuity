@@ -163,7 +163,10 @@ class FirstQuestionerFragmentTengkulak : Fragment() {
         val action =
             ahpResponse?.let {
                 FirstQuestionerFragmentTengkulakDirections.actionFirstQuestionerFragmentTengkulakToResultFragment(
-                    it
+                    it,
+                    null,
+                    args.questionerTengkulak?.firstQuestioner,
+                    null
                 )
             }
         if (action != null) {
